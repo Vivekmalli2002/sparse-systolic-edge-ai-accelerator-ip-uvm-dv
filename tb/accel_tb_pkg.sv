@@ -1,0 +1,30 @@
+`ifndef ACCEL_TB_PKG_SV
+`define ACCEL_TB_PKG_SV
+
+package accel_tb_pkg;
+
+    // =====================================================
+    // CHANGE ONLY THESE TWO TO RESIZE ENTIRE TESTBENCH
+    // Must match ROWS_P and COLS_P in tb_top.sv
+    // =====================================================
+    parameter int TB_ROWS = 8;
+    parameter int TB_COLS = 8;
+
+    // Timing
+    parameter int CLK_PERIOD_NS   = 5;
+    parameter int RESET_CYCLES    = 20;
+    parameter int TIMEOUT_CYCLES  = 100_000;
+    parameter int PIPELINE_LATENCY = 48;  // cycles from last act to first result
+
+    // Derived packing parameters — follow automatically
+    parameter int TB_PKTS_PER_BEAT   = 128 / 20;
+    parameter int TB_BEATS_PER_ROW   = (TB_COLS + TB_PKTS_PER_BEAT - 1)
+                                        / TB_PKTS_PER_BEAT;
+    parameter int TB_BEATS_PER_TILE  = TB_ROWS * TB_BEATS_PER_ROW;
+    parameter int TB_RESULTS_PER_BEAT = 128 / 32;
+    parameter int TB_RESULT_BEATS    = (TB_COLS + TB_RESULTS_PER_BEAT - 1)
+                                        / TB_RESULTS_PER_BEAT;
+
+endpackage
+
+`endif

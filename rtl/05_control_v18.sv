@@ -1042,7 +1042,8 @@ module control_top_v18
     input  logic [ROWS_P*COLS_P-1:0]      pe_mac_active_map,
     
     // IRQ
-    output logic                          irq_out
+    output logic                          irq_out,
+    output logic                          ctrl_clear_out
 );
 
     // Internal signals
@@ -1230,5 +1231,7 @@ module control_top_v18
         .cnt_zero_weights (perf_zw),
         .cnt_zero_acts    (perf_za)
     );
+  
+    assign ctrl_clear_out = ctrl_clear;
 
 endmodule

@@ -324,7 +324,7 @@ module accel_top_v18
         .clk     (clk),
         .rst_n   (rst_n),
         .enable  (compute_en),
-        .clear   (ctrl_clear),
+        .clear   (u_control.ctrl_clear_out),
         .act_in  (act_data),
         .act_out (array_act_in)
     );
@@ -375,7 +375,7 @@ module accel_top_v18
         .clk       (clk),
         .rst_n     (rst_n),
         .enable    (compute_en || drain_en),
-        .clear     (ctrl_clear),
+        .clear     (u_control.ctrl_clear_out),
         .psum_in   (array_psum_out),
         .valid_in  (array_col_valid),
         .psum_out  (deskew_psum_out),
@@ -580,7 +580,9 @@ module accel_top_v18
         .pe_mac_active_map(pe_mac_active_map),
         
         // IRQ
-        .irq_out         (irq_out)
+      .irq_out         (irq_out),
+      .ctrl_clear_out(ctrl_clear)
+      
     );
     
     // =========================================================================
@@ -589,7 +591,7 @@ module accel_top_v18
     // ctrl_enable and ctrl_clear are internal to control_top
     // We expose them via a simple always-on for now
     assign ctrl_enable = 1'b1;
-    assign ctrl_clear  = 1'b0;
+    //assign ctrl_clear  = 1'b0;
     
     // =========================================================================
     // Status Outputs

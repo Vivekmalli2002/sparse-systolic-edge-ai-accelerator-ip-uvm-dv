@@ -1,0 +1,718 @@
+# KERNEL: UVM_INFO @ 0: reporter [RNTST] Running test test_025_sparse_4_8_100vectors...
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(230) @ 0: uvm_test_top.env.sco [SCO] Queues flushed
+# KERNEL: ===================================================Test_025 : Sparse 4:8 - 100 Vectors - Start=================================================================
+# KERNEL:                 Step 1 : Soft Reset + Clear                 
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(42) @ 102500: uvm_test_top.env.axil_a.drv [axil_csr_drv] DUT RESET COMPLETED
+# KERNEL: =========================================================================================================================================
+# KERNEL: UVM_INFO /home/runner/accel_axis_weight_agent.sv(35) @ 102500: uvm_test_top.env.weight_a.drv [WEIGHT_DRV] Reset done
+# KERNEL: =========================================================================================================================================
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(35) @ 102500: uvm_test_top.env.act_a.drv [ACT_DRV] Reset done
+# KERNEL: =========================================================================================================================================
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 102500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x0 data=0x48
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(71) @ 127500: uvm_test_top.env.sco [SCO] WRITE addr=0x0 data=0x48
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 127500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 127500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x0 data=0x48
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 177500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x0 data=0x8
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(71) @ 202500: uvm_test_top.env.sco [SCO] WRITE addr=0x0 data=0x8
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 202500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 202500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x0 data=0x8
+# KERNEL:                 Step 2 : Configure  CSR_TILE_CFG, CSR_ACT_TILE_CFG, CSR_SPARSITY, CSR_CTRL              
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 227500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x8 data=0x10064
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(71) @ 252500: uvm_test_top.env.sco [SCO] WRITE addr=0x8 data=0x10064
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 252500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 252500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x8 data=0x10064
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 257500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0xe4 data=0x10000
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(71) @ 282500: uvm_test_top.env.sco [SCO] WRITE addr=0xe4 data=0x10000
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 282500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 282500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0xe4 data=0x10000
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 287500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0xc data=0x2
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(71) @ 312500: uvm_test_top.env.sco [SCO] WRITE addr=0xc data=0x2
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 312500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 312500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0xc data=0x2
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 317500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x0 data=0x1
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(71) @ 342500: uvm_test_top.env.sco [SCO] WRITE addr=0x0 data=0x1
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 342500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 342500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x0 data=0x1
+# KERNEL:                 Step 3 : Stream weights                 
+# KERNEL: UVM_INFO /home/runner/accel_axis_weight_agent.sv(179) @ 607500: uvm_test_top.env.weight_a.mon [WEIGHT_MON] w0[0]=1 w1[0]=1 idx0[0]=1 idx1[0]=0
+# KERNEL: UVM_INFO /home/runner/accel_axis_weight_agent.sv(180) @ 607500: uvm_test_top.env.weight_a.mon [WEIGHT_MON] Weight tile captured
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(120) @ 607500: uvm_test_top.env.sco [SCO] Weight tile stored â€” queue=1
+# KERNEL: UVM_INFO /home/runner/accel_axis_weight_agent.sv(101) @ 607500: uvm_test_top.env.weight_a.drv [WEIGHT_DRV] Tile complete
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(89) @ 607500: uvm_test_top.env.weight_a.seqr@@w_tile_seq [WEIGHT_TILE_SEQ] Weight tile streamed
+# KERNEL:                 Step 4 : Enable + Start                 
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 622500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x0 data=0x3
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(71) @ 647500: uvm_test_top.env.sco [SCO] WRITE addr=0x0 data=0x3
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 647500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 647500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x0 data=0x3
+# KERNEL:                 Step 5 : Stream activations (one per vector)                 
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 737500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=1
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 737500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 737500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 737500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 742500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=2
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 742500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 742500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 742500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 747500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 747500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 747500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 747500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 752500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=4
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 752500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 752500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 752500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 757500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=5
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 757500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 757500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 757500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 762500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=6
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 762500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 762500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 762500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 767500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=7
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 767500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 767500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 767500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 772500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=8
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 772500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 772500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 772500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 777500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=9
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 777500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 777500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 777500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 782500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=10
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 782500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 782500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 782500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 787500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=11
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 787500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 787500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 787500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 792500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=12
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 792500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 792500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 792500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 797500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=13
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 797500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 797500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 797500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 802500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=14
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 802500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 802500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 802500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 807500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=15
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 807500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 807500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 807500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 812500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=16
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 812500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 812500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 812500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 817500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=17
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 817500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 817500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 817500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 822500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=18
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 822500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 822500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 822500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 827500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=19
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 827500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 827500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 827500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 832500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=20
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 832500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 832500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 832500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 837500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=21
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 837500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 837500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 837500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 842500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=22
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 842500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 842500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 842500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 847500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=23
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 847500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 847500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 847500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 852500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=24
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 852500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 852500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 852500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 857500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=25
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 857500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 857500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 857500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 862500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=26
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 862500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 862500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 862500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 867500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=27
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 867500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 867500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 867500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 872500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=28
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 872500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 872500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 872500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 877500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=29
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 877500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 877500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 877500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 882500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=30
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 882500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 882500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 882500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 887500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=31
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 887500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 887500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 887500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 892500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=32
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 892500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 892500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 892500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 897500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=33
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 897500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 897500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 897500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 902500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=34
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 902500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 902500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 902500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 907500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=35
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 907500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 907500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 907500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 912500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=36
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 912500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 912500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 912500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 917500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=37
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 917500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 917500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 917500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 922500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=38
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 922500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 922500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 922500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 927500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=39
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 927500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 927500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 927500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 932500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=40
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 932500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 932500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 932500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 937500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=41
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 937500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 937500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 937500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 942500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=42
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 942500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 942500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 942500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 947500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=43
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 947500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 947500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 947500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 952500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=44
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 952500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 952500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 952500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 957500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=45
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 957500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 957500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 957500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 962500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=46
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 962500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 962500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 962500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 967500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=47
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 967500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 967500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 967500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 972500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=48
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 972500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 972500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 972500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 977500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=49
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 977500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 977500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 977500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 982500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=50
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 982500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 982500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 982500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 987500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=51
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 987500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 987500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 987500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 992500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=52
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 992500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 992500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 992500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 997500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=53
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 997500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 997500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 997500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1002500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=54
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1002500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1002500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1002500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1007500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=55
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1007500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1007500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1007500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1012500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=56
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1012500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1012500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1012500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1017500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=57
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1017500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1017500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1017500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1022500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=58
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1022500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1022500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1022500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1027500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=59
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1027500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1027500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1027500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1032500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=60
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1032500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1032500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1032500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1037500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=61
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1037500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1037500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1037500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1042500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=62
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1042500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1042500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1042500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1047500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=63
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1047500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1047500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1047500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1052500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=64
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1052500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1052500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1052500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1057500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=65
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1057500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1057500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1057500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1062500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=66
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1062500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1062500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1062500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1067500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=67
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1067500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1067500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1067500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1072500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=68
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1072500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1072500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1072500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1077500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=69
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1077500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1077500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1077500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1082500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=70
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1082500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1082500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1082500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1087500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=71
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1087500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1087500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1087500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1092500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=72
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1092500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1092500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1092500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1092500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1092500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1097500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=72
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1097500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1097500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1097500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1102500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=73
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1102500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1102500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1102500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1107500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=74
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1107500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1107500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1107500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1112500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=75
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1112500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1112500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1112500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1112500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1112500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1117500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=75
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1117500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1117500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1117500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1122500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=76
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1122500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1122500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1122500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1127500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=77
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1127500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1127500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1127500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1132500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=78
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1132500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1132500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1132500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1132500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1132500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1137500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=78
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1137500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1137500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1137500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1142500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=79
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1142500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1142500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1142500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1147500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=80
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1147500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1147500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1147500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1152500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=81
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1152500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1152500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1152500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1152500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1152500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1157500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=81
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1157500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1157500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1157500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1162500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=82
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1162500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1162500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1162500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1167500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=83
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1167500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1167500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1167500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1172500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=84
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1172500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1172500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1172500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1172500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1172500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1177500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=84
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1177500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1177500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1177500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1182500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=85
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1182500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1182500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1182500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1187500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=86
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1187500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1187500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1187500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1192500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=87
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1192500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1192500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1192500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1192500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1192500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1197500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=87
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1197500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1197500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1197500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1202500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=88
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1202500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1202500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1202500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1207500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=89
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1207500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1207500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1207500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1212500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=90
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1212500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1212500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1212500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1212500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1212500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1217500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=90
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1217500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1217500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1217500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1222500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=91
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1222500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1222500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1222500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1227500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=92
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1227500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=0 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1227500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1227500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 1232500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=93
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 1232500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=1 mode=SPARSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 1232500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/1 sent mode=SPARSE last=1
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 1232500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL:                 Step 6 : Wait for computation done                 
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1232500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1232500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1252500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1252500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1272500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1272500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1292500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1292500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1312500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1312500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1332500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1332500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1352500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1352500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1372500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1372500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1392500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1392500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1412500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1412500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1432500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1432500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1452500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1452500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1472500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1472500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1492500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1492500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1512500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1512500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1532500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1532500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1552500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1552500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1572500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1572500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1592500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1592500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1612500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1612500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1632500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1632500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1652500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1652500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1672500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1672500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1692500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1692500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1712500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1712500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1732500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1732500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1752500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1752500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1772500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1772500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1792500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1792500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1812500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1812500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1832500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1832500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1852500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1852500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1872500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1872500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1892500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1892500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1912500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1912500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1932500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1932500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1952500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1952500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1972500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1972500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1992500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1992500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2012500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2012500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2032500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2032500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2052500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2052500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2072500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2072500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2092500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2092500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2112500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2112500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2132500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2132500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2152500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2152500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2172500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2172500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2192500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2192500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2212500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2212500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2232500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2232500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2252500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2252500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2272500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2272500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2292500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2292500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2312500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2312500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2332500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2332500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2352500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2352500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2372500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2372500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2392500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2392500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2412500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2412500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2432500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2432500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2452500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2452500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2472500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2472500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2492500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2492500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2512500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2512500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2532500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2532500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2552500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2552500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2572500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2572500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2592500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2592500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2612500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2612500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2632500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2632500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2652500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2652500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2672500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2672500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2692500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2692500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2712500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2712500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2732500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2732500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2752500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2752500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2772500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2772500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2792500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2792500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2812500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2812500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2832500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2832500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2852500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2852500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2872500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2872500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2892500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2892500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2912500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2912500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2932500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2932500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2952500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2952500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2972500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2972500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 2992500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 2992500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 3012500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 3012500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 3032500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 3032500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 3052500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 3052500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 3072500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=1
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 3072500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(90) @ 3112500: uvm_test_top.env.axil_a.drv [AXIL_DRV] READ addr=0x30
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(126) @ 3127500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Read Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(90) @ 3132500: uvm_test_top.env.axil_a.drv [AXIL_DRV] READ addr=0x34
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(126) @ 3147500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Read Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(90) @ 3152500: uvm_test_top.env.axil_a.drv [AXIL_DRV] READ addr=0x38
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(126) @ 3167500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Read Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(90) @ 3172500: uvm_test_top.env.axil_a.drv [AXIL_DRV] READ addr=0x3c
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(126) @ 3187500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Read Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(90) @ 3192500: uvm_test_top.env.axil_a.drv [AXIL_DRV] READ addr=0x40
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(126) @ 3207500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Read Data transaction completed
+# KERNEL: 
+# KERNEL: ==============================================================
+# KERNEL:   PERFORMANCE REPORT : Test_025 : Sparse 4:8 - 100 Vectors
+# KERNEL: ==============================================================
+# KERNEL:   Vectors processed   : 100
+# KERNEL:   Mode                : SPARSE
+# KERNEL:   Array size          : 16x16 PEs
+# KERNEL: --------------------------------------------------------------
+# KERNEL:   Total cycles        : 191
+# KERNEL:   Stall cycles        : 0
+# KERNEL:   Active cycles       : 191
+# KERNEL:   Utilization         : 100.0%
+# KERNEL: --------------------------------------------------------------
+# KERNEL:   Useful MACs         : 40960
+# KERNEL:   Zero weight skips   : 0
+# KERNEL:   Zero act skips      : 7936
+# KERNEL:   Total PE ops        : 48896
+# KERNEL:   Compute efficiency  : 83.8%
+# KERNEL: --------------------------------------------------------------
+# KERNEL:   Throughput (MACs/cycle) : 214.45
+# KERNEL: --------------------------------------------------------------
+# KERNEL:   Peak MACs/cycle     : 512
+# KERNEL:   Peak GMACS          : 102.40
+# KERNEL:   Peak GOPS          : 204.80
+# KERNEL: --------------------------------------------------------------
+# KERNEL:   Achieved GMACS      : 85.78
+# KERNEL:   Achieved GOPS      : 171.56
+# KERNEL: ==============================================================
+# KERNEL: 
+# KERNEL: ===================================================Test_025 : End of the test=================================================================
+# KERNEL: UVM_INFO /home/runner/test_025_sparse_4_8_100vectors.sv(55) @ 3207500: uvm_test_top [COVERAGE] Coverage = 100.00%
+# KERNEL: UVM_INFO ./uvm-1.2/src/base/uvm_objection.svh(1271) @ 3207500: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(239) @ 3207500: uvm_test_top.env.sco [SCO] FINAL: pass=1600 fail=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(244) @ 3207500: uvm_test_top.env.sco [SCO] TEST PASSED
+# KERNEL: UVM_INFO ./uvm-1.2/src/base/uvm_report_server.svh(869) @ 3207500: reporter [UVM/REPORT/SERVER] 
+# KERNEL: --- UVM Report Summary ---
+# KERNEL: 
+# KERNEL: ** Report counts by severity
+# KERNEL: UVM_INFO :  653
+# KERNEL: UVM_WARNING :    0
+# KERNEL: UVM_ERROR :    0
+# KERNEL: UVM_FATAL :    0
+# KERNEL: ** Report counts by id
+# KERNEL: [ACT_DRV]   101
+# KERNEL: [ACT_MON]   100
+# KERNEL: [ACT_STREAM_SEQ]   100
+# KERNEL: [AXIL_DRV]     5
+# KERNEL: [COVERAGE]     1
+# KERNEL: [CSR_WRITE_SEQ]     7
+# KERNEL: [RESULT_MON]   100
+# KERNEL: [RNTST]     1
+# KERNEL: [SCO]   211
+# KERNEL: [TEST_DONE]     1
+# KERNEL: [UVM/RELNOTES]     1
+# KERNEL: [WEIGHT_DRV]     2
+# KERNEL: [WEIGHT_MON]     2
+# KERNEL: [WEIGHT_TILE_SEQ]     1
+# KERNEL: [axil_csr_drv]    20
+# KERNEL: 
+# RUNTIME: Info: RUNTIME_0068 uvm_root.svh (521): $finish called.

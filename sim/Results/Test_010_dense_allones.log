@@ -1,0 +1,125 @@
+# KERNEL: UVM_INFO @ 0: reporter [RNTST] Running test test_010_dense_allones...
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(230) @ 0: uvm_test_top.env.sco [SCO] Queues flushed
+# KERNEL: ===================================================Test_010 : Dense All Ones - Start=================================================================
+# KERNEL:                 Step 1 : Soft Reset + Clear                 
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(42) @ 102500: uvm_test_top.env.axil_a.drv [axil_csr_drv] DUT RESET COMPLETED
+# KERNEL: =========================================================================================================================================
+# KERNEL: UVM_INFO /home/runner/accel_axis_weight_agent.sv(35) @ 102500: uvm_test_top.env.weight_a.drv [WEIGHT_DRV] Reset done
+# KERNEL: =========================================================================================================================================
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(35) @ 102500: uvm_test_top.env.act_a.drv [ACT_DRV] Reset done
+# KERNEL: =========================================================================================================================================
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 102500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x0 data=0x48
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(71) @ 127500: uvm_test_top.env.sco [SCO] WRITE addr=0x0 data=0x48
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 127500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 127500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x0 data=0x48
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 177500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x0 data=0x8
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(71) @ 202500: uvm_test_top.env.sco [SCO] WRITE addr=0x0 data=0x8
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 202500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 202500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x0 data=0x8
+# KERNEL:                 Step 2 : Configure  CSR_TILE_CFG, CSR_ACT_TILE_CFG, CSR_SPARSITY, CSR_CTRL              
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 227500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x8 data=0x10001
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(71) @ 252500: uvm_test_top.env.sco [SCO] WRITE addr=0x8 data=0x10001
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 252500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 252500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x8 data=0x10001
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 257500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0xe4 data=0x10000
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(71) @ 282500: uvm_test_top.env.sco [SCO] WRITE addr=0xe4 data=0x10000
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 282500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 282500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0xe4 data=0x10000
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 287500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0xc data=0x1
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(71) @ 312500: uvm_test_top.env.sco [SCO] WRITE addr=0xc data=0x1
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 312500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 312500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0xc data=0x1
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 317500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x0 data=0x1
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(71) @ 342500: uvm_test_top.env.sco [SCO] WRITE addr=0x0 data=0x1
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 342500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 342500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x0 data=0x1
+# KERNEL:                 Step 3 : Stream weights                 
+# KERNEL: UVM_INFO /home/runner/accel_axis_weight_agent.sv(179) @ 607500: uvm_test_top.env.weight_a.mon [WEIGHT_MON] w0[0]=1 w1[0]=1 idx0[0]=0 idx1[0]=1
+# KERNEL: UVM_INFO /home/runner/accel_axis_weight_agent.sv(180) @ 607500: uvm_test_top.env.weight_a.mon [WEIGHT_MON] Weight tile captured
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(120) @ 607500: uvm_test_top.env.sco [SCO] Weight tile stored â€” queue=1
+# KERNEL: UVM_INFO /home/runner/accel_axis_weight_agent.sv(101) @ 607500: uvm_test_top.env.weight_a.drv [WEIGHT_DRV] Tile complete
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(89) @ 607500: uvm_test_top.env.weight_a.seqr@@w_tile_seq [WEIGHT_TILE_SEQ] Weight tile streamed
+# KERNEL:                 Step 4 : Enable + Start                 
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 622500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x0 data=0x3
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(71) @ 647500: uvm_test_top.env.sco [SCO] WRITE addr=0x0 data=0x3
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 647500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 647500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x0 data=0x3
+# KERNEL:                 Step 5 : Stream activations (one per vector)                 
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 737500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/2 sent mode=DENSE last=1
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(130) @ 742500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=1
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 742500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=3 a1=3 a2=3 a3=3 last=1 mode=DENSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 742500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 2/2 sent mode=DENSE last=1
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 742500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL:                 Step 6 : Wait for computation done                 
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1097500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=1
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(160) @ 1097500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=3 a1=3
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(90) @ 1247500: uvm_test_top.env.axil_a.drv [AXIL_DRV] READ addr=0x30
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(126) @ 1262500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Read Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(90) @ 1267500: uvm_test_top.env.axil_a.drv [AXIL_DRV] READ addr=0x34
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(126) @ 1282500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Read Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(90) @ 1287500: uvm_test_top.env.axil_a.drv [AXIL_DRV] READ addr=0x38
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(126) @ 1302500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Read Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(90) @ 1307500: uvm_test_top.env.axil_a.drv [AXIL_DRV] READ addr=0x3c
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(126) @ 1322500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Read Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(90) @ 1327500: uvm_test_top.env.axil_a.drv [AXIL_DRV] READ addr=0x40
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(126) @ 1342500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Read Data transaction completed
+# KERNEL: 
+# KERNEL: ==============================================================
+# KERNEL:   PERFORMANCE REPORT : Test_010 : Dense All Ones
+# KERNEL: ==============================================================
+# KERNEL:   Vectors processed   : 1
+# KERNEL:   Mode                : DENSE
+# KERNEL:   Array size          : 16x16 PEs
+# KERNEL: --------------------------------------------------------------
+# KERNEL:   Total cycles        : 93
+# KERNEL:   Stall cycles        : 0
+# KERNEL:   Active cycles       : 93
+# KERNEL:   Utilization         : 100.0%
+# KERNEL: --------------------------------------------------------------
+# KERNEL:   Useful MACs         : 15872
+# KERNEL:   Zero weight skips   : 0
+# KERNEL:   Zero act skips      : 7936
+# KERNEL:   Total PE ops        : 23808
+# KERNEL:   Compute efficiency  : 66.7%
+# KERNEL: --------------------------------------------------------------
+# KERNEL:   Throughput (MACs/cycle) : 170.67
+# KERNEL: --------------------------------------------------------------
+# KERNEL:   Peak MACs/cycle     : 512
+# KERNEL:   Peak GMACS          : 102.40
+# KERNEL:   Peak GOPS          : 204.80
+# KERNEL: --------------------------------------------------------------
+# KERNEL:   Achieved GMACS      : 68.27
+# KERNEL:   Achieved GOPS      : 136.53
+# KERNEL: ==============================================================
+# KERNEL: 
+# KERNEL: ===================================================Test_010 : End of the test=================================================================
+# KERNEL: UVM_INFO /home/runner/test_010_dense_allones.sv(56) @ 1342500: uvm_test_top [COVERAGE] Coverage = 100.00%
+# KERNEL: UVM_INFO ./uvm-1.2/src/base/uvm_objection.svh(1271) @ 1342500: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(239) @ 1342500: uvm_test_top.env.sco [SCO] FINAL: pass=16 fail=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(244) @ 1342500: uvm_test_top.env.sco [SCO] TEST PASSED
+# KERNEL: UVM_INFO ./uvm-1.2/src/base/uvm_report_server.svh(869) @ 1342500: reporter [UVM/REPORT/SERVER] 
+# KERNEL: --- UVM Report Summary ---
+# KERNEL: 
+# KERNEL: ** Report counts by severity
+# KERNEL: UVM_INFO :   60
+# KERNEL: UVM_WARNING :    0
+# KERNEL: UVM_ERROR :    0
+# KERNEL: UVM_FATAL :    0
+# KERNEL: ** Report counts by id
+# KERNEL: [ACT_DRV]     3
+# KERNEL: [ACT_MON]     1
+# KERNEL: [ACT_STREAM_SEQ]     1
+# KERNEL: [AXIL_DRV]     5
+# KERNEL: [COVERAGE]     1
+# KERNEL: [CSR_WRITE_SEQ]     7
+# KERNEL: [RESULT_MON]     1
+# KERNEL: [RNTST]     1
+# KERNEL: [SCO]    13
+# KERNEL: [TEST_DONE]     1
+# KERNEL: [UVM/RELNOTES]     1
+# KERNEL: [WEIGHT_DRV]     2
+# KERNEL: [WEIGHT_MON]     2
+# KERNEL: [WEIGHT_TILE_SEQ]     1
+# KERNEL: [axil_csr_drv]    20
+# KERNEL: 
+# RUNTIME: Info: RUNTIME_0068 uvm_root.svh (521): $finish called.

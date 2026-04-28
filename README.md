@@ -35,38 +35,7 @@ Full lifecycle: RTL design archaeology → UVM testbench architecture → test e
 
 ## Architecture
 
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                         accel_top_v18  (16×16 configured)               │
-│                                                                         │
-│  AXI4-Lite ──► control_top_v18                                          │
-│                 ├─ accel_csr_axil_v18  (CSR registers, 0x000–0x0FC)    │
-│                 ├─ compute_controller_v18  (FSM: IDLE→LOAD→STREAM→DRAIN)│
-│                 ├─ irq_controller_v18  (8 sources, W1C, mask)           │
-│                 └─ perf_counters_v18  (cycles, stalls, MACs, ZW, ZA)   │
-│                              │ ctrl signals                             │
-│                              ▼                                          │
-│  Weight DMA ──► axis_weight_rx_v18 ──► weight_tile_buffer_v18          │
-│   (128-bit)      6 pkts/beat              Depth 8 · Prefetch(V18.3)    │
-│                                                  │ wgt_in[16]          │
-│  Act DMA ──► axis_act_rx_v18 ──► skew_buffer_v18 (r → r×2 cycle delay) │
-│  (128-bit)    32-bit pkt out      │ act_in[16]                         │
-│                                   ▼                                    │
-│                    ┌──────────────────────────────┐                     │
-│                    │  systolic_array_v18  (16×16)  │                    │
-│                    │  pe_v18: dual MAC · ICG · parity                  │
-│                    │  INT8×INT8→INT32 · idx mux    │                    │
-│                    └──────────────┬───────────────┘                    │
-│                    deskew_buffer_v18  (col c → (15-c)×2 delay)         │
-│                    activation_func_v18  (ReLU / ReLU6 / Leaky ReLU)    │
-│                    vector_postproc_v18  (Bias → Scale → Shift+Sat)     │
-│                    output_collector_fifo_v18  (depth 256, FWFT)         │
-│                              │                                          │
-│  Host Memory ◄── axis_result_tx_v18  (4×INT32 per 128-bit beat)        │
-│                                                                         │
-│  ── accel_sva_coverage  (bind)  ·  30 assertions PA001–PA030 ───────── │
-└─────────────────────────────────────────────────────────────────────────┘
-```
+![DUT Top-Level Architecture](docs/images/dut_top_architecture.svg)
 
 **Sparsity:** Each `pe_v18` stores `{idx1[1:0], idx0[1:0], w1[7:0], w0[7:0]}`.
 In sparse mode, `idx0/idx1` select which of 4 activations each weight multiplies — hardware mux, not software masking.

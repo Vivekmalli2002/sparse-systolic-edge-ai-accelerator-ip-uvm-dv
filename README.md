@@ -43,7 +43,7 @@
 | **Scoreboard Checks** | **7,728 column comparisons · 0 errors** (no false positives/negatives) |
 | **SVA Assertions** | **30 protocol + FSM + datapath properties — all passing** |
 | **FSM Coverage** | **100% state bins, 100% mode bins, 100% state×mode cross** |
-| **Peak Throughput** | **91.49 GMACS** at 200 MHz (89.3% compute efficiency) |
+| **Peak Throughput** | **91.49 GMACS / 182.98 GOPS** at 200 MHz (89.3% compute efficiency) |
 | **Zero Stalls** | 0 stall cycles across all compute tests |
 | **Simulation Runtime** | ~5.5 ms for 100-vector constrained random test |
 
@@ -107,7 +107,7 @@ text
 | 9 | Constrained Random / Coverage | 0 | 2 | 3 | 5 | 5 | ✅ 100% |
 | **Total** | **12 Scopes** | **13** | **30** | **17** | **60** | **45** | **75%** |
 
-*All 45 implemented tests pass. Remaining tests (S4b, S5b, S8b, and throughput scaling) are planned for tapeout closure. b‑suffix scopes are supplementary robustness tests.*
+*All 45 implemented tests pass. Remaining tests (S4b, S5b, S8b, and throughput scaling) are planned for additional robustness tests.*
 
 ---
 
@@ -203,11 +203,11 @@ All assertions bound via `bind accel_top_v18 accel_sva_coverage u_sva(...)`.
 
 ## Waveform Evidence — Interface Handshakes
 
-![AXI-Lite and Weight AXI4-Stream Handshakes](sim/waveforms/AXIL_and_AXIS_Weight_Handshakes.jpg)
+![AXI-Lite and Weight AXI4-Stream Handshakes](sim/Waveforms/AXIL_and_AXIS_Weight_Handshakes.jpg)
 
 *Complete AXI4-Lite write/read sequence followed by a 128‑bit weight tile transfer with TLAST/TREADY handshake.*
 
-![Activation and Result AXI4-Stream Handshakes](sim/waveforms/AXIS_Act_and_Result_Handshakes.jpg)
+![Activation and Result AXI4-Stream Handshakes](sim/Waveforms/AXIS_Act_and_Result_Handshakes.jpg)
 
 *Activation streaming (128‑bit beats) and result output with TLAST generation. All three AXI4‑Stream interfaces verified.*
 

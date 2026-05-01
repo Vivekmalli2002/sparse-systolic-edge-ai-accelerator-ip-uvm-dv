@@ -67,7 +67,7 @@
 ---
 
 ## Verification Environment Architecture
-
+```
 tb_top
 ├─ DUT: accel_top_v18 (16×16, 128‑bit AXI4‑Stream, 256‑deep output FIFO)
 ├─ Interfaces
@@ -84,6 +84,7 @@ tb_top
 │ ├─ accel_scoreboard (reference model + comparator)
 │ └─ accel_coverage_subscriber (5 covergroups, probe‑based FSM sampling)
 └─ SVA Bind: accel_sva_coverage (30 assertions)
+```
 text
 
 
@@ -252,7 +253,7 @@ text
 ---
 
 ## Repository Structure
-
+```
 sparse-systolic-edge-ai-accelerator-ip-uvm-dv/
 ├── rtl/ # DUT source files
 │ ├── 01_pkg_v18.sv
@@ -291,6 +292,7 @@ sparse-systolic-edge-ai-accelerator-ip-uvm-dv/
 │ └── V18_UVM_TestPlan_v4.docx # Full 60-test plan
 ├── README.md
 └── LICENSE
+```
 text
 
 

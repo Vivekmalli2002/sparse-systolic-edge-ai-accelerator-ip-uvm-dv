@@ -47,7 +47,7 @@ graph LR
     subgraph Dataflow ["Datapath & Compute Core"]
         W_SKEW["Weight Tile Buffer<br>& Skew"]
         A_SKEW["Activation<br>Skew Buffer"]
-        ARRAY((("8x8 Systolic Array<br>[PE Stages = 2]<br>(Sparse/Dense MAC)")))$$$
+        ARRAY((("8x8 Systolic Array<br>[PE Stages = 2]<br>(Sparse/Dense MAC)")))
         DESKEW["Result<br>Deskew Buffer"]
     end
 
@@ -93,7 +93,8 @@ graph LR
     class FSM,CSR control;
 ```
 
-*Architecture Block Diagram*
+----
+## Architecture Block Diagram
 
 ![architecture_block_diagram](sim/Waveforms/dut_top_architecture.png)
 

@@ -28,7 +28,6 @@ A production‑style UVM verification environment for a 16×16 weight‑stationa
 
 ### 🏗️ Accelerator Architecture
 
-```mermaid
 graph LR
     %% External Interfaces
     subgraph AXI_Interfaces ["AXI4 Interfaces"]
@@ -40,12 +39,12 @@ graph LR
     %% Control Subsystem
     subgraph Control ["Control Subsystem"]
         FSM{"Compute Controller<br>(FSM)"}
-        CSR[("CSR Map &<br>Scalable Bias Mem")]
+        CSR[("CSR Map &amp;<br>Scalable Bias Mem")]
     end
 
     %% Core Dataflow
     subgraph Dataflow ["Datapath & Compute Core"]
-        W_SKEW["Weight Tile Buffer<br>& Skew"]
+        W_SKEW["Weight Tile Buffer<br>&amp; Skew"]
         A_SKEW["Activation<br>Skew Buffer"]
         ARRAY((("8x8 Systolic Array<br>[PE Stages = 2]<br>(Sparse/Dense MAC)")))
         DESKEW["Result<br>Deskew Buffer"]
@@ -65,12 +64,12 @@ graph LR
     %% Routing
     AXIL --> CSR
     CSR <--> FSM
-    FSM -.-|>|Control Flags| ARRAY
+    FSM -.->|Control Flags| ARRAY
     
     AXIS_W --> W_SKEW
     AXIS_A --> A_SKEW
     
-    W_SKEW -->|Weights & Indices| ARRAY
+    W_SKEW -->|Weights &amp; Indices| ARRAY
     A_SKEW -->|Activations| ARRAY
     
     ARRAY -->|Raw Psums| DESKEW
@@ -91,15 +90,14 @@ graph LR
     class ARRAY,W_SKEW,A_SKEW,DESKEW,FIFO core;
     class BIAS,SCALE,SAT postproc;
     class FSM,CSR control;
-```
 
 ----
 ## Architecture Block Diagram
 
-![architecture_block_diagram](sim/Waveforms/dut_top_architecture.png)
+![architecture_block_diagram](sim/Waveforms/dut_top_architecture.jpg)
 
 
-![architecture_graphical_diagram](sim/Waveforms/Architecture.png)
+![architecture_graphical_diagram](sim/Waveforms/Architecture.jpg)
 
 ---
 

@@ -412,27 +412,32 @@ acdb report -i coverage/merged.acdb -o coverage/merged_report.txt -txt
 ## 👤 Author & Career Context
 
 ```
-**Vivek Malli**  
-*Embedded Systems Test Engineer → Aspiring Semiconductor DV Engineer*
+# 👋 Hi, I'm Vivek Malli
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/vivek-malli-validation-eng)
+I am an **Embedded Systems Test Engineer** with over 3.7 years of experience in automotive ECU validation at Bosch, currently making a targeted career transition into **Semiconductor Design Verification (ASIC / IP DV)**.
+*   **Domain skills:** Automotive ECU validation: CAPL, CANoe, DoIP, UDS, HIL, VT System, Ethernet,python
 
+I specialize in building scalable, coverage-driven verification environments from scratch, hunting down RTL bugs, and proving hardware reliability through rigorous protocol assertions.
 
-| Area | Details |
-|------|---------|
-| `Current Role` | Embedded System Test Engineer @ Bosch (3.7+ years) |
-| `Domain Expertise` | Automotive ECU validation: CAPL, CANoe, DoIP, UDS, HIL, VT System, Ethernet |
-| `Target Role` | Semiconductor Design Verification Engineer |
-| `DV Skills` | SystemVerilog, UVM 1.2, SVA, Functional Coverage, UVM RAL (in progress) |
-| `This Project` | 45-test suite, 4-agent UVM env, 30 SVA assertions, reference model scoreboard, `100% functional coverage` |
+### 🛠️ Verification Tech Stack
+*   **Languages:** SystemVerilog
+*   **Methodologies:** UVM 1.2, Assertion-Based Verification (SVA), Coverage-Driven Verification (CDV)
+*   **Protocols:** AMBA AXI4-Lite, AXI4-Stream
+*   **EDA Tools:** Aldec Riviera-PRO, EDA Playground
 
-> *"From testing ECUs at Bosch to verifying a complex AI accelerator IP — this project bridges the gap between embedded systems and semiconductor DV, proving hands-on mastery of UVM, coverage-driven verification, and ABV."*
+### 🏆 Featured Project: Sparse Systolic Edge AI Accelerator DV
+I recently architected a complete UVM testbench for a **16x16 Sparse Edge-AI Accelerator IP** (V18.4). 
+*   **The Challenge:** Verifying a complex 128-bit AXI4-Stream datapath with structured sparsity multiplexing and a 3-stage post-processing quantization pipeline.
+*   **The Result:** Achieved **100% functional and FSM coverage** across 5 covergroups by orchestrating constrained-random sweeps, surgical corner-case punchers, and backdoor error-injection (S_ERROR recovery). 
+*   👉 [**Check out the full repository and verification report here.**](https://github.com/Vivekmalli2002/sparse-systolic-edge-ai-accelerator-ip-uvm-dv)
 
+### 📫 Let's Connect!
+I am actively looking for **Design Verification Engineer** opportunities.
+*   [Connect with me on LinkedIn](https://www.linkedin.com/in/vivek-malli-validation-eng)
 ---
 
 ## 📄 License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
-*Built with dedication for the semiconductor DV community. Questions? Open an issue or connect on LinkedIn.*
 ```

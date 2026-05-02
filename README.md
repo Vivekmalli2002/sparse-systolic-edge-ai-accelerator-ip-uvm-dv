@@ -95,10 +95,10 @@ graph LR
 
 *Architecture Block Diagram*
 
-![architecture_block_diagram](sim/Waveforms/dut_top_architecture.jpg)
+![architecture_block_diagram](sim/Waveforms/dut_top_architecture.png)
 
 
-![architecture_graphical_diagram](sim/Waveforms/Architecture.jpg)
+![architecture_graphical_diagram](sim/Waveforms/Architecture.png)
 
 ---
 

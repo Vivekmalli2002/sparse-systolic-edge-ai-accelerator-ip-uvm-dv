@@ -95,10 +95,13 @@ graph LR
 
 ----
 
+##Block diagram
+
 ![Block diagram of the 16x16 sparse systolic accelerator](docs/images/dut_top_architecture.jpg)
 
 
 
+##Graphical architecture illustration
 
 ![Graphical architecture illustration](docs/images/Architecture.jpg)
 

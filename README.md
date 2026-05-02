@@ -331,7 +331,7 @@ Vivek Malli
 
 Embedded Systems Test Engineer → Aspiring Semiconductor DV Engineer
 
-https://img.shields.io/badge/LinkedIn-Connect-blue
+|www.linkedin.com/in/vivek-malli-validation-eng|
 
 | Area | Details |
 |------|---------|

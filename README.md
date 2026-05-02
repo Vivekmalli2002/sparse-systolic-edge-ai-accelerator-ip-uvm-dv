@@ -326,12 +326,12 @@ acdb merge -o coverage/merged.acdb -i coverage/test_065_fsm_error_state.acdb \
   -i coverage/test_075_high_coverage_sweep.acdb
 acdb report -i coverage/merged.acdb -o coverage/merged_report.txt -txt
 
-Author & Career Context
+## Author & Career Context
 Vivek Malli
 
 Embedded Systems Test Engineer → Aspiring Semiconductor DV Engineer
 
-|www.linkedin.com/in/vivek-malli-validation-eng|
+www.linkedin.com/in/vivek-malli-validation-eng
 
 | Area | Details |
 |------|---------|

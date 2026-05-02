@@ -200,11 +200,11 @@ All assertions bound via `bind accel_top_v18 accel_sva_coverage u_sva(...)`.
 
 ## Waveform Evidence — Interface Handshakes
 
-![AXI-Lite and Weight AXI4-Stream Handshakes](sim/waveforms/AXIL_and_AXIS_Weight_Handshakes.jpg)
+![AXI-Lite and Weight AXI4-Stream Handshakes](sim/Waveforms/AXIL_and_AXIS_Weight_Handshakes.jpg)
 
 *Complete AXI4‑Lite write/read sequence followed by a 128‑bit weight tile transfer with TLAST/TREADY handshake.*
 
-![Activation and Result AXI4-Stream Handshakes](sim/waveforms/AXIS_Act_and_Result_Handshakes.jpg)
+![Activation and Result AXI4-Stream Handshakes](sim/Waveforms/AXIS_Act_and_Result_Handshakes.jpg)
 
 *Activation streaming (128‑bit beats) and result output with TLAST generation. All three AXI4‑Stream interfaces verified.*
 

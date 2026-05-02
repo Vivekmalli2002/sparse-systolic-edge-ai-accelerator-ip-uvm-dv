@@ -62,6 +62,7 @@ A production‑style UVM verification environment for a 16×16 weight‑stationa
 
 ## Verification Environment Architecture
 
+```
 tb_top
 ├─ DUT: accel_top_v18 (16×16, 128‑bit AXI4‑Stream, 256‑deep output FIFO)
 ├─ Interfaces
@@ -78,7 +79,7 @@ tb_top
 │ ├─ accel_scoreboard (reference model + comparator)
 │ └─ accel_coverage_subscriber (5 covergroups, probe‑based FSM sampling)
 └─ SVA Bind: accel_sva_coverage (30 assertions)
-text
+```
 
 
 ---
@@ -248,7 +249,7 @@ text
 ---
 
 ## Repository Structure
-
+```
 sparse-systolic-edge-ai-accelerator-ip-uvm-dv/
 ├── rtl/ # DUT source files
 │ ├── 01_pkg_v18.sv
@@ -287,7 +288,7 @@ sparse-systolic-edge-ai-accelerator-ip-uvm-dv/
 │ └── V18_UVM_TestPlan_v4.docx # Full 60-test plan
 ├── README.md
 └── LICENSE
-text
+```
 
 
 ---
@@ -332,14 +333,14 @@ Embedded Systems Test Engineer → Aspiring Semiconductor DV Engineer
 
 https://img.shields.io/badge/LinkedIn-Connect-blue
 
-```
-Area	Details
-Current Role	Embedded System Test Engineer @ Bosch (3.7+ years)
-Domain Expertise	Automotive ECU validation: CAPL, CANoe, DoIP, UDS, HIL, VT System, Ethernet
-Target Role	Semiconductor Design Verification Engineer
-DV Skills Developed	SystemVerilog, UVM 1.2, SVA, Functional Coverage, UVM RAL (in progress)
-This Project	Built from scratch — 45‑test passing suite, 4‑agent UVM env, 30 SVA assertions, reference model scoreboard, 100% functional coverage
-```
+| Area | Details |
+|------|---------|
+|Current Role| Embedded System Test Engineer @ Bosch (3.7+ years)|
+|Domain Expertise| Automotive ECU validation: CAPL, CANoe, DoIP, UDS, HIL, VT System, Ethernet|
+|Target Role| Semiconductor Design Verification Engineer|
+|DV Skills Developed| SystemVerilog, UVM 1.2, SVA, Functional Coverage, UVM RAL (in progress)|
+|This Project| Built from scratch — 45‑test passing suite, 4 agent UVM env, 30 SVA assertions, reference model scoreboard, 100% functional coverage|
+
 
 
 License

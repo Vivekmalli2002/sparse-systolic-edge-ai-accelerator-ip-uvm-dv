@@ -420,11 +420,11 @@ acdb report -i coverage/merged.acdb -o coverage/merged_report.txt -txt
 
 | Area | Details |
 |------|---------|
-| **Current Role** | Embedded System Test Engineer @ Bosch (3.7+ years) |
-| **Domain Expertise** | Automotive ECU validation: CAPL, CANoe, DoIP, UDS, HIL, VT System, Ethernet |
-| **Target Role** | Semiconductor Design Verification Engineer |
-| **DV Skills** | SystemVerilog, UVM 1.2, SVA, Functional Coverage, UVM RAL (in progress) |
-| **This Project** | 45-test suite, 4-agent UVM env, 30 SVA assertions, reference model scoreboard, **100% functional coverage** |
+| `Current Role` | Embedded System Test Engineer @ Bosch (3.7+ years) |
+| `Domain Expertise` | Automotive ECU validation: CAPL, CANoe, DoIP, UDS, HIL, VT System, Ethernet |
+| `Target Role` | Semiconductor Design Verification Engineer |
+| `DV Skills` | SystemVerilog, UVM 1.2, SVA, Functional Coverage, UVM RAL (in progress) |
+| `This Project` | 45-test suite, 4-agent UVM env, 30 SVA assertions, reference model scoreboard, `100% functional coverage` |
 
 > *"From testing ECUs at Bosch to verifying a complex AI accelerator IP — this project bridges the gap between embedded systems and semiconductor DV, proving hands-on mastery of UVM, coverage-driven verification, and ABV."*
 

@@ -2,7 +2,7 @@
 `define TEST_019_DENSE_100VECTORS_SV
 
 
-class test_019_dense_100vectors extends functionality_basetest;
+class test_019_dense_100vectors extends base_test;
 
   `uvm_component_utils(test_019_dense_100vectors)
   

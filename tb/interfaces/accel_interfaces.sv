@@ -182,5 +182,6 @@ interface accel_dut_probes_if(input logic clk);
     logic       wgt_buf_tile_ready;
     logic       done;
     logic mode_dense;
+    logic       inject_parity_error;
   
 endinterface

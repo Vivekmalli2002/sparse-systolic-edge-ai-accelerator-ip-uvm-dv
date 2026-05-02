@@ -13,6 +13,8 @@ class accel_env extends uvm_env;
 
     // Scoreboard — public so test can call set_expected()
     accel_scoreboard  sco;
+  
+    accel_coverage_subscriber  cov_sub;
 
     function new(string name = "accel_env",uvm_component parent = null);
       
@@ -28,6 +30,7 @@ class accel_env extends uvm_env;
         act_a    = axis_act_agent::type_id::create("act_a",this);
         result_a = axis_result_agent::type_id::create("result_a",this);
         sco      = accel_scoreboard::type_id::create("sco",this);
+        cov_sub  = accel_coverage_subscriber::type_id::create("cov_sub", this);
       
     endfunction
 
@@ -38,6 +41,12 @@ class accel_env extends uvm_env;
         weight_a.aport.connect(sco.weight_imp);
         act_a.aport.connect(sco.act_imp);
         result_a.aport.connect(sco.result_imp);
+      
+        // Connect monitors' analysis ports to subscriber
+        axil_a.aport.connect(cov_sub.axil_imp);
+        weight_a.aport.connect(cov_sub.weight_imp);
+        act_a.aport.connect(cov_sub.act_imp);
+        result_a.aport.connect(cov_sub.result_imp);
       
     endfunction
 

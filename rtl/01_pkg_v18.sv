@@ -723,7 +723,7 @@ module pkg_compile_check;
         assert(PP_BIAS_WIDTH == 16) else $error("PP_BIAS_WIDTH mismatch");
         $display("V18.4 Package compile check PASSED (128-bit AXI)");
         $display("  IP Version: %0d.%0d", IP_VERSION_MAJOR, IP_VERSION_MINOR);
-        $display(" Default Array: %0dx%0d", ROWS, COLS);
+        $display("  Array: %0dx%0d", ROWS, COLS);
         $display("  Data: W=%0d, A=%0d, ACC=%0d", W_WIDTH, A_WIDTH, ACC_WIDTH);
         $display("  AXI-Stream: TDATA=%0d, TKEEP=%0d, TUSER=%0d", AXIS_DATA_WIDTH, AXIS_KEEP_WIDTH, AXIS_USER_WIDTH);
         $display("  AXI-Lite: ADDR=%0d, DATA=%0d", AXIL_ADDR_WIDTH, AXIL_DATA_WIDTH);

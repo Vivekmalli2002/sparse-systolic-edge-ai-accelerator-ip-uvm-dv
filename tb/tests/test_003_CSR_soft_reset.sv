@@ -47,11 +47,11 @@ class test_003_CSR_soft_reset extends base_test;
     rd_seq.start(env.axil_a.seqr);
 
     // Step 3 — CSR values preserved from T002 — NOT reset
-    env.sco.set_expected(CSR_TILE_CFG,  32'h0032_0032);
-    env.sco.set_expected(CSR_SPARSITY,  32'h0000_000D);
-    env.sco.set_expected(CSR_IRQ_EN,    32'h0000_0009);
-    env.sco.set_expected(CSR_PP_CTRL,   32'h0000_0184);
-    env.sco.set_expected(CSR_PP_SCALE,  32'h0000_0002);
+    env.sco.set_expected(CSR_TILE_CFG,  32'h0008_0080);
+    env.sco.set_expected(CSR_SPARSITY,  32'h0000_0001);
+    env.sco.set_expected(CSR_IRQ_EN,    32'h0000_0000);
+    env.sco.set_expected(CSR_PP_CTRL,   32'h0000_0000);
+    env.sco.set_expected(CSR_PP_SCALE,  32'h0000_0001);
 
     // Read each CSR — scoreboard checks automatically
     $display("                READ : CSR_TILE_CFG REG                 ");

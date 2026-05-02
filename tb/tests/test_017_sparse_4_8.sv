@@ -2,7 +2,7 @@
 `define TEST_017_SPARSE_4_8_SV
 
 
-class test_017_sparse_4_8 extends functionality_basetest;
+class test_017_sparse_4_8 extends base_test;
 
   `uvm_component_utils(test_017_sparse_4_8)
   

@@ -28,37 +28,6 @@ A production‑style UVM verification environment for a 16×16 weight‑stationa
 
 ### 🏗️ Accelerator Architecture
 
-# Sparse Systolic Edge AI Accelerator IP — UVM Verification
-
-[![UVM 1.2](https://img.shields.io/badge/UVM-1.2-blue)]()
-[![SystemVerilog](https://img.shields.io/badge/SystemVerilog-IEEE_1800--2017-green)]()
-[![Tests](https://img.shields.io/badge/Tests-45%2F60%20Passing-brightgreen)]()
-[![Scoreboard](https://img.shields.io/badge/Scoreboard-8%2C000%2B%20Checks%2C%200%20Errors-success)]()
-[![SVA](https://img.shields.io/badge/SVA-30%20Assertions%20Passing-success)]()
-[![Coverage](https://img.shields.io/badge/Coverage-100%25%20(merged%2C%203%20tests)-brightgreen)]()
-[![License](https://img.shields.io/badge/License-MIT-yellow)]()
-
-A production‑style UVM verification environment for a 16×16 weight‑stationary systolic array AI accelerator with structured sparsity and post‑processing pipeline. Built from scratch by an embedded systems test engineer transitioning to semiconductor DV. **45 tests passing, 30 SVA assertions, 100% functional coverage from only 3 merged tests, and zero scoreboard errors across 8,000+ column comparisons.** In addition, four real RTL bugs were discovered and fixed during the verification process.
-
----
-
-## Design Under Verification (DUV)
-
-| Parameter | Value |
-|-----------|-------|
-| **Architecture** | Weight‑stationary systolic array |
-| **Array Size** | 16×16 PEs (parameterisable to any ROWS×COLS) |
-| **Data Types** | INT8 weights / activations, INT32 accumulators |
-| **Sparsity Modes** | Dense, 2:4, 1:4, 4:8 (hardware mux, not software masking) |
-| **Post‑Processing** | Bias → Scale → Shift+Round+Saturate (3‑stage pipeline) |
-| **Interfaces** | AXI4‑Lite CSR (4 KB), 3 × AXI4‑Stream 128‑bit (weight / activation / result) |
-| **Power Features** | Clock gating (ICG), operand isolation |
-| **RTL Lines** | ~4,500 (7 SystemVerilog source files) |
-| **IP Version** | V18.4 (128‑bit AXI‑Stream, 2× throughput) |
-
-### 🏗️ Accelerator Architecture
-
-```mermaid
 graph LR
     %% External Interfaces
     subgraph AXI_Interfaces ["AXI4 Interfaces"]
@@ -70,12 +39,12 @@ graph LR
     %% Control Subsystem
     subgraph Control ["Control Subsystem"]
         FSM{"Compute Controller<br>(FSM)"}
-        CSR[("CSR Map &<br>Scalable Bias Mem")]
+        CSR[("CSR Map &amp;<br>Scalable Bias Mem")]
     end
 
     %% Core Dataflow
     subgraph Dataflow ["Datapath & Compute Core"]
-        W_SKEW["Weight Tile Buffer<br>& Skew"]
+        W_SKEW["Weight Tile Buffer<br>&amp; Skew"]
         A_SKEW["Activation<br>Skew Buffer"]
         ARRAY((("8x8 Systolic Array<br>[PE Stages = 2]<br>(Sparse/Dense MAC)")))
         DESKEW["Result<br>Deskew Buffer"]
@@ -100,7 +69,7 @@ graph LR
     AXIS_W --> W_SKEW
     AXIS_A --> A_SKEW
     
-    W_SKEW -->|Weights & Indices| ARRAY
+    W_SKEW -->|Weights &amp; Indices| ARRAY
     A_SKEW -->|Activations| ARRAY
     
     ARRAY -->|Raw Psums| DESKEW
@@ -122,11 +91,13 @@ graph LR
     class BIAS,SCALE,SAT postproc;
     class FSM,CSR control;
 
-Architecture Block Diagram
+----
+## Architecture Block Diagram
 
-https://sim/Waveforms/dut_top_architecture.jpg
+![architecture_block_diagram](sim/Waveforms/dut_top_architecture.jpg)
 
-https://sim/Waveforms/Architecture.jpg
+
+![architecture_graphical_diagram](sim/Waveforms/Architecture.jpg)
 
 ---
 

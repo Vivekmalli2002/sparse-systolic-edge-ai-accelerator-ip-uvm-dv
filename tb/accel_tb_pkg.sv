@@ -36,6 +36,7 @@ package accel_tb_pkg;
     localparam int  PEAK_MACS_PER_CYCLE = 2 * TB_ROWS * TB_COLS;         // 512
     localparam real PEAK_GMACS          = PEAK_MACS_PER_CYCLE * CLK_FREQ_GHZ; // 102.4 GMACS
 
+
 endpackage
 
 `endif

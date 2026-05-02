@@ -1,4 +1,4 @@
-module accel_sva_coverage
+module accel_sva
   import accel_pkg_v18::*;
   import accel_tb_pkg::*;
   (
@@ -42,6 +42,8 @@ module accel_sva_coverage
     input compute_state_e state,
     input logic compute_en,
     input logic busy,
+    sparsity_mode_e sparsity_mode,
+    logic ofifo_full,
     input logic done
   
   );
@@ -299,8 +301,6 @@ module accel_sva_coverage
     else `uvm_error("PA006","pvalid is unkown");
     
     
-  PA007_bresp_must_be_ok: assert property(p_bresp_must_be_ok)
-    else `uvm_error("PA007","when bvalid then bresp is not ok");
       
   
   PA008_arvalid_stable: assert property(p_arvalid_stable)
@@ -319,8 +319,6 @@ module accel_sva_coverage
     else `uvm_error("PA011","rvalid is unkown");
 
 
-  PA012_rresp_must_be_ok: assert property(p_rresp_must_be_ok)
-    else `uvm_error("PA012","when rvalid then rresp is not ok");
 
 
   PA013_w_tvalid_stable: assert property(p_w_tvalid_stable)
@@ -393,6 +391,36 @@ module accel_sva_coverage
   
   PA030_compute_en_active_in_state_stream_and_drain: assert property(p_compute_en_active_in_state_stream_and_drain)
     else `uvm_error("PA030", "Compute_en should be active in only State STREAM & DRAIN");  
+  
+    
+  // --- Improved DUT properties ---
+
+  // Sparsity mode must be stable while compute is active
+  property p_sparsity_stable_during_compute;
+      (state == S_STREAM || state == S_DRAIN) |-> $stable(sparsity_mode);
+  endproperty
+  PA031_sparsity_stable: assert property(p_sparsity_stable_during_compute)
+      else `uvm_error("PA031", "sparsity_mode changed during compute!");
+
+  // DRAIN must eventually lead to done (bounded liveness)
+  property p_drain_leads_to_done;
+      (state == S_DRAIN) |-> ##[1:1024] $rose(done);
+  endproperty
+  PA032_drain_to_done: assert property(p_drain_leads_to_done)
+      else `uvm_error("PA032", "DRAIN did not finish within 1024 cycles");
+
+  // OFIFO must never overflow (if r_tvalid is high, FIFO should not be full)
+  // Note: you may need to bring in the ofifo_full signal from the DUT.
+  property p_ofifo_no_overflow;
+      (r_tvalid && !r_tready) |=> $stable(ofifo_full);   // just an example, adjust
+  endproperty
+
+  // Reset check: state must be IDLE after reset
+  property p_reset_state;
+      $rose(rst_n) |=> (state == S_IDLE);
+  endproperty
+  PA033_reset_state: assert property(p_reset_state)
+      else `uvm_error("PA033", "FSM not IDLE after reset");
       
   
 endmodule

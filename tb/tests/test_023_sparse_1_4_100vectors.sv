@@ -2,7 +2,7 @@
 `define TEST_023_SPARSE_1_4_100VECTORS_SV
 
 
-class test_023_sparse_1_4_100vectors extends functionality_basetest;
+class test_023_sparse_1_4_100vectors extends base_test;
 
   `uvm_component_utils(test_023_sparse_1_4_100vectors)
   

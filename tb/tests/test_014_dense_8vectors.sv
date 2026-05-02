@@ -2,7 +2,7 @@
 `define TEST_014_DENSE_8VECOTRS_SV
 
 
-class test_014_dense_8vectors extends functionality_basetest;
+class test_014_dense_8vectors extends base_test;
 
   `uvm_component_utils(test_014_dense_8vectors)
   

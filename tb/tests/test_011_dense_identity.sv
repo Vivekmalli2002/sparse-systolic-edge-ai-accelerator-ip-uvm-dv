@@ -1,12 +1,12 @@
-`ifndef TEST_011_DENSE_IDENTITY_SV
-`define TEST_011_DENSE_IDENTITY_SV
+`ifndef TEST_012_DENSE_NEGATIVE_WEIGHTS_SV
+`define TEST_012_DENSE_NEGATIVE_WEIGHTS_SV
 
 
-class test_011_dense_identity_weights extends functionality_basetest;
+class test_012_dense_negative_weights extends base_test;
 
-  `uvm_component_utils(test_011_dense_identity_weights)
+  `uvm_component_utils(test_012_dense_negative_weights)
   
-  function new(string inst = "test_011_dense_identity", uvm_component parent = null);
+  function new(string inst = "test_012_dense_negative_weights", uvm_component parent = null);
   
     super.new(inst,parent);
   
@@ -24,34 +24,34 @@ class test_011_dense_identity_weights extends functionality_basetest;
     a_stream_tnx = axis_act_tnx::type_id::create("a_stream_tnx");
 
     env.sco.flush_queues();
-
-    // Identity — only diagonal PEs have w0=1
-    // w0[r*TB_COLS+r] = 1, all others = 0
-    for(int i = 0; i < TB_ROWS*TB_COLS; i++) begin
-        w_tile_tnx.w0[i] = 8'sd0;
-        w_tile_tnx.w1[i] = 8'sd0;
-        w_tile_tnx.idx0[i] = 2'd0;
-        w_tile_tnx.idx1[i] = 2'd1;
+    
+    //Weight tile
+    for(int i = 0; i < TB_ROWS * TB_COLS; i++) begin
+      
+      w_tile_tnx.w0[i] = -8'sd1;
+      w_tile_tnx.w1[i] = -8'sd1;
+      w_tile_tnx.idx0[i] = 2'sd1;
+      w_tile_tnx.idx1[i] = 2'sd0;
+      
     end
-    // Diagonal only
-    for(int r = 0; r < TB_ROWS; r++)
-        w_tile_tnx.w0[r*TB_COLS+r] = 8'sd1;
-
+    
     w_tile_tnx.sparsity_mode = SPARSITY_DENSE;
-    w_tile_tnx.sparse_mask   = 4'hF;
-
-    a_stream_tnx.a0 = 8'sd3; 
-    a_stream_tnx.a1 = 8'sd3;
-    a_stream_tnx.a2 = 8'sd3; 
-    a_stream_tnx.a3 = 8'sd3;
+    w_tile_tnx.sparse_mask = 4'hF;
+    
+    //Activation
+    a_stream_tnx.a0 = 8'sd1;
+    a_stream_tnx.a1 = 8'sd1;
+    a_stream_tnx.a2 = 8'sd1;
+    a_stream_tnx.a3 = 8'sd1;
     a_stream_tnx.mode_dense = 1;
-
-    $display("===================================================Test_011 : Dense Identity Weights - Start=================================================================");
     
-    run_compute_test(w_tile_tnx, a_stream_tnx, 32'h0000_0001, 1,"Test_011 : Dense Identity Weights");
+    //call the run_compute_test
+    $display("===================================================Test_012 : Dense Negative Weights - Start=================================================================");
     
-    $display("===================================================Test_011 : End of the test=================================================================");
-
+    run_compute_test(w_tile_tnx, a_stream_tnx, 32'h0000_0001, 1, "Test_012 : Dense Negative Weights");
+    
+    $display("===================================================Test_012 : End of the test=================================================================");
+    
     `uvm_info("COVERAGE", $sformatf("Coverage = %0.2f%%", $get_coverage()), UVM_MEDIUM)
 
     phase.drop_objection(this);

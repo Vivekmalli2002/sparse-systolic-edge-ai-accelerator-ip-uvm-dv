@@ -2,7 +2,7 @@
 `define TEST_012_DENSE_NEGATIVE_WEIGHTS_SV
 
 
-class test_012_dense_negative_weights extends functionality_basetest;
+class test_012_dense_negative_weights extends base_test;
 
   `uvm_component_utils(test_012_dense_negative_weights)
   

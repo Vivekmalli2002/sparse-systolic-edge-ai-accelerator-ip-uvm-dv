@@ -1,0 +1,848 @@
+# KERNEL: ASDB file was created in location /home/runner/dataset.asdb
+# KERNEL: UVM_INFO @ 0: reporter [RNTST] Running test test_062_irq_mask_during_compute...
+# KERNEL: UVM_INFO @ 0: reporter [MAXQUITSET] '+UVM_MAX_QUIT_COUNT=1,YES' provided on the command line is being applied.
+# KERNEL: ===================================================Test_062 : IRQ Mask / Unmask During Compute - Start=================================================================
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(297) @ 0: uvm_test_top.env.sco [SCO] Queues flushed
+# KERNEL:                 Step 1 : Reset + mask all IRQ sources (IRQ_EN=0)                
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(42) @ 102500: uvm_test_top.env.axil_a.drv [axil_csr_drv] DUT RESET COMPLETED
+# KERNEL: =========================================================================================================================================
+# KERNEL: UVM_INFO /home/runner/accel_axis_weight_agent.sv(35) @ 102500: uvm_test_top.env.weight_a.drv [WEIGHT_DRV] Reset done
+# KERNEL: =========================================================================================================================================
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(35) @ 102500: uvm_test_top.env.act_a.drv [ACT_DRV] Reset done
+# KERNEL: =========================================================================================================================================
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 102500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x0 data=0x48
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(109) @ 127500: uvm_test_top.env.sco [SCO] WRITE addr=0x0 data=0x48
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 127500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 127500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x0 data=0x48
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 177500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x0 data=0x8
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(109) @ 202500: uvm_test_top.env.sco [SCO] WRITE addr=0x0 data=0x8
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 202500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 202500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x0 data=0x8
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 227500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x10 data=0x0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(109) @ 252500: uvm_test_top.env.sco [SCO] WRITE addr=0x10 data=0x0
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 252500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 252500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x10 data=0x0
+# KERNEL:                 Step 2 : Configure and run 8-vector compute with IRQ_EN=0                
+# KERNEL:                 Step 1 : Soft Reset + Clear                 
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 257500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x0 data=0x48
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(109) @ 282500: uvm_test_top.env.sco [SCO] WRITE addr=0x0 data=0x48
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 282500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 282500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x0 data=0x48
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 332500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x0 data=0x8
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(109) @ 357500: uvm_test_top.env.sco [SCO] WRITE addr=0x0 data=0x8
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 357500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 357500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x0 data=0x8
+# KERNEL:                 Step 2 : Configure  CSR_TILE_CFG, CSR_ACT_TILE_CFG, CSR_SPARSITY, CSR_CTRL              
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 382500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x8 data=0x10008
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(109) @ 407500: uvm_test_top.env.sco [SCO] WRITE addr=0x8 data=0x10008
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 407500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 407500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x8 data=0x10008
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 412500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0xe4 data=0x10000
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(109) @ 437500: uvm_test_top.env.sco [SCO] WRITE addr=0xe4 data=0x10000
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 437500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 437500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0xe4 data=0x10000
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 442500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0xc data=0x1
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(109) @ 467500: uvm_test_top.env.sco [SCO] WRITE addr=0xc data=0x1
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 467500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 467500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0xc data=0x1
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 472500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x0 data=0x1
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(109) @ 497500: uvm_test_top.env.sco [SCO] WRITE addr=0x0 data=0x1
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 497500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 497500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x0 data=0x1
+# KERNEL:                 Step 3 : Stream weights                 
+# KERNEL: UVM_INFO /home/runner/accel_axis_weight_agent.sv(179) @ 762500: uvm_test_top.env.weight_a.mon [WEIGHT_MON] w0[0]=1 w1[0]=1 idx0[0]=0 idx1[0]=1
+# KERNEL: UVM_INFO /home/runner/accel_axis_weight_agent.sv(180) @ 762500: uvm_test_top.env.weight_a.mon [WEIGHT_MON] Weight tile captured
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(149) @ 762500: uvm_test_top.env.sco [SCO] Weight tile stored â€” queue=1
+# KERNEL: UVM_INFO /home/runner/accel_axis_weight_agent.sv(101) @ 762500: uvm_test_top.env.weight_a.drv [WEIGHT_DRV] Tile complete
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(89) @ 762500: uvm_test_top.env.weight_a.seqr@@w_tile_seq [WEIGHT_TILE_SEQ] Weight tile streamed
+# KERNEL:                 Step 4 : Enable + Start                 
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 777500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x0 data=0x3
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(109) @ 802500: uvm_test_top.env.sco [SCO] WRITE addr=0x0 data=0x3
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 802500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 802500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x0 data=0x3
+# KERNEL:                 Step 5 : Stream activations (one per vector)                 
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 892500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/2 sent mode=DENSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(154) @ 897500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=1
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 897500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=1 a1=1 a2=1 a3=1 last=0 mode=DENSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 897500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 2/2 sent mode=DENSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 897500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 902500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/2 sent mode=DENSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(154) @ 907500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=2
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 907500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=1 a1=1 a2=1 a3=1 last=0 mode=DENSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 907500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 2/2 sent mode=DENSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 907500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 912500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/2 sent mode=DENSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(154) @ 917500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=3
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 917500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=1 a1=1 a2=1 a3=1 last=0 mode=DENSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 917500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 2/2 sent mode=DENSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 917500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 922500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/2 sent mode=DENSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(154) @ 927500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=4
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 927500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=1 a1=1 a2=1 a3=1 last=0 mode=DENSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 927500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 2/2 sent mode=DENSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 927500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 932500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/2 sent mode=DENSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(154) @ 937500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=5
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 937500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=1 a1=1 a2=1 a3=1 last=0 mode=DENSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 937500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 2/2 sent mode=DENSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 937500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 942500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/2 sent mode=DENSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(154) @ 947500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=6
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 947500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=1 a1=1 a2=1 a3=1 last=0 mode=DENSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 947500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 2/2 sent mode=DENSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 947500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 952500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/2 sent mode=DENSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(154) @ 957500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=7
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 957500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=1 a1=1 a2=1 a3=1 last=0 mode=DENSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 957500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 2/2 sent mode=DENSE last=0
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 957500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 962500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 1/2 sent mode=DENSE last=1
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(154) @ 967500: uvm_test_top.env.sco [SCO] Act vector stored â€” queue=8
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(143) @ 967500: uvm_test_top.env.act_a.mon [ACT_MON] Vector captured a0=1 a1=1 a2=1 a3=1 last=1 mode=DENSE
+# KERNEL: UVM_INFO /home/runner/accel_axis_act_agent.sv(69) @ 967500: uvm_test_top.env.act_a.drv [ACT_DRV] Beat 2/2 sent mode=DENSE last=1
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(115) @ 967500: uvm_test_top.env.act_a.seqr@@a_stream_seq [ACT_STREAM_SEQ] Activation vector streamed
+# KERNEL:                 Step 6 : Wait for computation done                 
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1252500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(174) @ 1252500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=1 a1=1
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1272500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(174) @ 1272500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=1 a1=1
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1292500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(174) @ 1292500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=1 a1=1
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1312500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(174) @ 1312500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=1 a1=1
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1332500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(174) @ 1332500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=1 a1=1
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1352500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(174) @ 1352500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=1 a1=1
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1372500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(174) @ 1372500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=1 a1=1
+# KERNEL: UVM_INFO /home/runner/accel_axis_result_agent.sv(69) @ 1392500: uvm_test_top.env.result_a.mon [RESULT_MON] Result vector captured â€” last=1
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(174) @ 1392500: uvm_test_top.env.sco [SCO] Computing: w0[0]=1 w1[0]=1 a0=1 a1=1
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(90) @ 1472500: uvm_test_top.env.axil_a.drv [AXIL_DRV] READ addr=0x30
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(126) @ 1487500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Read Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(90) @ 1492500: uvm_test_top.env.axil_a.drv [AXIL_DRV] READ addr=0x34
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(126) @ 1507500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Read Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(90) @ 1512500: uvm_test_top.env.axil_a.drv [AXIL_DRV] READ addr=0x38
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(126) @ 1527500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Read Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(90) @ 1532500: uvm_test_top.env.axil_a.drv [AXIL_DRV] READ addr=0x3c
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(126) @ 1547500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Read Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(90) @ 1552500: uvm_test_top.env.axil_a.drv [AXIL_DRV] READ addr=0x40
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(126) @ 1567500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Read Data transaction completed
+# KERNEL: 
+# KERNEL: ==============================================================
+# KERNEL:   PERFORMANCE REPORT : Test_062_masked
+# KERNEL: ==============================================================
+# KERNEL:   Vectors processed   : 8
+# KERNEL:   Mode                : DENSE
+# KERNEL:   Array size          : 16x16 PEs
+# KERNEL: --------------------------------------------------------------
+# KERNEL:   Total cycles        : 107
+# KERNEL:   Stall cycles        : 0
+# KERNEL:   Active cycles       : 107
+# KERNEL:   Utilization         : 100.0%
+# KERNEL: --------------------------------------------------------------
+# KERNEL:   Useful MACs         : 19456
+# KERNEL:   Zero weight skips   : 0
+# KERNEL:   Zero act skips      : 7936
+# KERNEL:   Total PE ops        : 27392
+# KERNEL:   Compute efficiency  : 71.0%
+# KERNEL: --------------------------------------------------------------
+# KERNEL:   Throughput (MACs/cycle) : 181.83
+# KERNEL: --------------------------------------------------------------
+# KERNEL:   Peak MACs/cycle     : 512
+# KERNEL:   Peak GMACS          : 102.40
+# KERNEL:   Peak GOPS          : 204.80
+# KERNEL: --------------------------------------------------------------
+# KERNEL:   Achieved GMACS      : 72.73
+# KERNEL:   Achieved GOPS      : 145.47
+# KERNEL: ==============================================================
+# KERNEL: 
+# KERNEL:                 Step 3 : Verify IRQ_STATUS[0] is set (pending), IRQ_EN was 0                
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(90) @ 1572500: uvm_test_top.env.axil_a.drv [AXIL_DRV] READ addr=0x14
+# KERNEL: UVM_WARNING /home/runner/accel_scoreboard.sv(119) @ 1587500: uvm_test_top.env.sco [SCO] READ addr=0x14 no expected registered
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(126) @ 1587500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Read Data transaction completed
+# KERNEL:     IRQ_STATUS[0] = 1 â€” compute_done pending bit set. PASS.
+# KERNEL:                 Step 4 : Enable IRQ_EN=0x1 â€” expect irq_out to assert (if pending)                
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 1592500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x10 data=0x1
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(109) @ 1617500: uvm_test_top.env.sco [SCO] WRITE addr=0x10 data=0x1
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 1617500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 1617500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x10 data=0x1
+# KERNEL:     IRQ_EN[0]=1, pending was set â†’ irq_out should be high now.
+# KERNEL:                 Step 5 : W1C clear IRQ_STATUS[0]                
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(56) @ 1632500: uvm_test_top.env.axil_a.drv [axil_csr_drv] WRITE addr=0x14 data=0x1
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(109) @ 1657500: uvm_test_top.env.sco [SCO] WRITE addr=0x14 data=0x1
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(121) @ 1657500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Write Data transaction completed
+# KERNEL: UVM_INFO /home/runner/accel_sequences.sv(31) @ 1657500: uvm_test_top.env.axil_a.seqr@@wr_seq [CSR_WRITE_SEQ] Written addr=0x14 data=0x1
+# KERNEL:                 Step 6 : Verify IRQ_STATUS[0] cleared                
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(90) @ 1667500: uvm_test_top.env.axil_a.drv [AXIL_DRV] READ addr=0x14
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(125) @ 1682500: uvm_test_top.env.sco [SCO] PASS addr=0x14 exp=0x18 got=0x18
+# KERNEL: UVM_INFO /home/runner/accel_axil_agent.sv(126) @ 1682500: uvm_test_top.env.axil_a.drv [axil_csr_drv] [CSR] Read Data transaction completed
+# KERNEL: ===================================================Test_062 : End of the test=================================================================
+# KERNEL: UVM_INFO /home/runner/test_062_irq_mask_during_compute.sv(81) @ 1682500: uvm_test_top [COVERAGE] Coverage = 55.07%
+# KERNEL: UVM_INFO ./uvm-1.2/src/base/uvm_objection.svh(1271) @ 1682500: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# KERNEL: UVM_INFO /home/runner/accel_coverage_subscriber.sv(222) @ 1682500: uvm_test_top.env.cov_sub [COV] ======================================
+# KERNEL: UVM_INFO /home/runner/accel_coverage_subscriber.sv(223) @ 1682500: uvm_test_top.env.cov_sub [COV]    Functional Coverage Summary        
+# KERNEL: UVM_INFO /home/runner/accel_coverage_subscriber.sv(224) @ 1682500: uvm_test_top.env.cov_sub [COV] ======================================
+# KERNEL: UVM_INFO /home/runner/accel_coverage_subscriber.sv(225) @ 1682500: uvm_test_top.env.cov_sub [COV]   AXI-Lite   : 85.7%
+# KERNEL: UVM_INFO /home/runner/accel_coverage_subscriber.sv(226) @ 1682500: uvm_test_top.env.cov_sub [COV]   Weight     : 28.9%
+# KERNEL: UVM_INFO /home/runner/accel_coverage_subscriber.sv(227) @ 1682500: uvm_test_top.env.cov_sub [COV]   Activation : 50.0%
+# KERNEL: UVM_INFO /home/runner/accel_coverage_subscriber.sv(228) @ 1682500: uvm_test_top.env.cov_sub [COV]   Result     : 58.3%
+# KERNEL: UVM_INFO /home/runner/accel_coverage_subscriber.sv(229) @ 1682500: uvm_test_top.env.cov_sub [COV]   FSM+Mode   : 52.4%
+# KERNEL: UVM_INFO /home/runner/accel_coverage_subscriber.sv(230) @ 1682500: uvm_test_top.env.cov_sub [COV]   TOTAL      : 55.1%
+# KERNEL: UVM_INFO /home/runner/accel_coverage_subscriber.sv(231) @ 1682500: uvm_test_top.env.cov_sub [COV] ======================================
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(301) @ 1682500: uvm_test_top.env.sco [SCO] FINAL: pass=129 fail=0
+# KERNEL: UVM_INFO /home/runner/accel_scoreboard.sv(305) @ 1682500: uvm_test_top.env.sco [SCO] TEST PASSED
+# KERNEL: UVM_INFO ./uvm-1.2/src/base/uvm_report_server.svh(869) @ 1682500: reporter [UVM/REPORT/SERVER] 
+# KERNEL: --- UVM Report Summary ---
+# KERNEL: 
+# KERNEL: Quit count :     0 of     1
+# KERNEL: ** Report counts by severity
+# KERNEL: UVM_INFO :  145
+# KERNEL: UVM_WARNING :    1
+# KERNEL: UVM_ERROR :    0
+# KERNEL: UVM_FATAL :    0
+# KERNEL: ** Report counts by id
+# KERNEL: [ACT_DRV]    17
+# KERNEL: [ACT_MON]     8
+# KERNEL: [ACT_STREAM_SEQ]     8
+# KERNEL: [AXIL_DRV]     7
+# KERNEL: [COV]    10
+# KERNEL: [COVERAGE]     1
+# KERNEL: [CSR_WRITE_SEQ]    12
+# KERNEL: [MAXQUITSET]     1
+# KERNEL: [RESULT_MON]     8
+# KERNEL: [RNTST]     1
+# KERNEL: [SCO]    34
+# KERNEL: [TEST_DONE]     1
+# KERNEL: [UVM/RELNOTES]     1
+# KERNEL: [WEIGHT_DRV]     2
+# KERNEL: [WEIGHT_MON]     2
+# KERNEL: [WEIGHT_TILE_SEQ]     1
+# KERNEL: [axil_csr_drv]    32
+# KERNEL: 
+# RUNTIME: Info: RUNTIME_0068 uvm_root.svh (521): $finish called.
+# KERNEL: Time: 1682500 ps,  Iteration: 63,  Instance: /tb_top,  Process: @INITIAL#202_9@.
+# KERNEL: stopped at time: 1682500 ps
+# VSIM: Simulation has finished. There are no more test vectors to simulate.
+# ACDB: Covergroup Coverage data has been saved to "coverage/test_062_irq_mask_during_compute.acdb" database.
+# VSIM: Simulation has finished.
+set total [expr {$pass_count + $fail_count}]
+# 1
+puts "========================================="
+# =========================================
+puts "         REGRESSION COMPLETE             "
+#          REGRESSION COMPLETE             
+puts "========================================="
+# =========================================
+foreach line $result_lines {
+    puts "  $line"
+}
+#   PASS  test_062_irq_mask_during_compute
+puts "-----------------------------------------"
+# -----------------------------------------
+puts "  PASSED : $pass_count / $total"
+#   PASSED : 1 / 1
+puts "  FAILED : $fail_count / $total"
+#   FAILED : 0 / 1
+puts "========================================="
+# =========================================
+if {[llength $acdb_files] > 0} {
+
+    puts ""
+    puts "========================================="
+    puts "  Merging Coverage ([llength $acdb_files] tests)"
+    puts "========================================="
+
+    # ? Correct Aldec acdb merge syntax: -i per file, -o for output
+    set merge_cmd "acdb merge -o coverage/merged.acdb"
+    foreach f $acdb_files {
+        append merge_cmd " -i $f"
+    }
+
+    if {[catch {eval $merge_cmd} err]} {
+        puts "WARN: Merge failed: $err"
+    } else {
+        puts "Merged OK: coverage/merged.acdb"
+
+        # ? Correct Aldec report syntax
+        if {[catch {
+            acdb report -i coverage/merged.acdb -o coverage/merged_report.txt -txt
+        } err]} {
+            puts "WARN: Report failed: $err"
+            puts "Try opening coverage/merged.acdb in Aldec GUI manually"
+        } else {
+            # Print report to console
+            if {[catch {open coverage/merged_report.txt r} fid]} {
+                puts "Could not read report file"
+            } else {
+                puts ""
+                puts "========================================="
+                puts "     OVERALL COVERAGE SUMMARY            "
+                puts "========================================="
+                while {[gets $fid line] >= 0} {
+                    puts $line
+                }
+                close $fid
+                puts "========================================="
+            }
+        }
+    }
+
+} else {
+    puts "No coverage databases found to merge"
+}
+# 
+# =========================================
+#   Merging Coverage (1 tests)
+# =========================================
+# Merged OK: coverage/merged.acdb
+# 
+# =========================================
+#      OVERALL COVERAGE SUMMARY            
+# =========================================
+# +++++++++++++++++++++++++++++++++++++++++++++
+# ++++++++++       REPORT INFO       ++++++++++
+# +++++++++++++++++++++++++++++++++++++++++++++
+# 
+# 
+# SUMMARY
+# ==============================================================
+# |     Property     |                  Value                  |
+# ==============================================================
+# | User             | runner                                  |
+# | Host             | 253c8d230bf4                            |
+# | Tool             | Riviera-PRO 2025.04                     |
+# | Report file      | /home/runner/coverage/merged_report.txt |
+# | Report date      | 2026-05-02 11:29                        |
+# | Report arguments |                                         |
+# | Input file       | /home/runner/coverage/merged.acdb       |
+# | Input file date  | 2026-05-02 11:29                        |
+# | Number of tests  | 1                                       |
+# ==============================================================
+# 
+# 
+# TEST DETAILS
+# ========================================================================================================================
+# | Property |                                                   Value                                                   |
+# ========================================================================================================================
+# | Test     | test_062_irq_mask_during_compute.acdb:test_062_irq_mask_during_compute                                    |
+# | Status   | Warning                                                                                                   |
+# | Args     | asim -c work.tb_top +access +r +UVM_TESTNAME=test_062_irq_mask_during_compute +UVM_MAX_QUIT_COUNT=1,YES   |
+# |          | -acdb_file coverage/test_062_irq_mask_during_compute.acdb -l results/test_062_irq_mask_during_compute.log |
+# | Simtime  | 1682500 ps                                                                                                |
+# | Cputime  | 1.761 s                                                                                                   |
+# | Seed     | 1                                                                                                         |
+# | Date     | 2026-05-02 11:29                                                                                          |
+# | User     | runner                                                                                                    |
+# | Host     | 253c8d230bf4                                                                                              |
+# | Host os  | Linux64                                                                                                   |
+# | Tool     | Riviera-PRO 2025.04 (simulator)                                                                           |
+# ========================================================================================================================
+# 
+# 
+# +++++++++++++++++++++++++++++++++++++++++++++
+# ++++++++++     DESIGN HIERARCHY    ++++++++++
+# +++++++++++++++++++++++++++++++++++++++++++++
+# 
+# 
+# CUMULATIVE SUMMARY
+# =============================================
+# |    Coverage Type    | Weight | Hits/Total |
+# =============================================
+# | Covergroup Coverage |      1 |    55.066% |
+# |---------------------|--------|------------|
+# | Types               |        |      0 / 5 |
+# =============================================
+# CUMULATIVE INSTANCE-BASED COVERAGE: 55.066%
+# COVERED INSTANCES: 0 / 1
+# FILES: 1
+# 
+# 
+# CLASS - /accel_coverage_subscriber : work.accel_coverage_subscriber
+# 
+# 
+#     SUMMARY
+#     =============================================
+#     |    Coverage Type    | Weight | Hits/Total |
+#     =============================================
+#     | Covergroup Coverage |      1 |    55.066% |
+#     |---------------------|--------|------------|
+#     | Types               |        |      0 / 5 |
+#     =============================================
+#     WEIGHTED AVERAGE LOCAL: 55.066%
+# 
+# 
+#     COVERGROUP COVERAGE
+#     ===================================================================================
+#     |                  Covergroup                   |   Hits   |  Goal /  |  Status   |
+#     |                                               |          | At Least |           |
+#     ===================================================================================
+#     | TYPE /accel_coverage_subscriber/cg_axil       |  85.714% | 100.000% | Uncovered |
+#     ===================================================================================
+#     | INSTANCE <UNNAMED1>                           |  85.714% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_we                  | 100.000% | 100.000% | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin write                                     |       12 |        1 | Covered   |
+#     | bin read                                      |        7 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_wdata_lsb           | 100.000% | 100.000% | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        7 |        1 | Covered   |
+#     | bin one                                       |        5 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_rdata_lsb           | 100.000% | 100.000% | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        5 |        1 | Covered   |
+#     | bin one                                       |        2 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_resp                |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin okay                                      |       19 |        1 | Covered   |
+#     | bin slverr                                    |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_we_wdata              | 100.000% | 100.000% | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <write,zero>                              |        7 |        1 | Covered   |
+#     | bin <write,one>                               |        5 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_we_rdata              | 100.000% | 100.000% | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <read,zero>                               |        5 |        1 | Covered   |
+#     | bin <read,one>                                |        2 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_we_resp               |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <write,okay>                              |       12 |        1 | Covered   |
+#     | bin <read,okay>                               |        7 |        1 | Covered   |
+#     ===================================================================================
+#     | TYPE /accel_coverage_subscriber/cg_weight     |  28.906% | 100.000% | Uncovered |
+#     ===================================================================================
+#     | INSTANCE <UNNAMED1>                           |  28.906% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_sparsity            |  25.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin dense                                     |        1 |        1 | Covered   |
+#     | bin sp_2_4                                    |        0 |        1 | Zero      |
+#     | bin sp_1_4                                    |        0 |        1 | Zero      |
+#     | bin sp_4_8                                    |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_w0_zero             |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        1 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_w1_zero             |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        1 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_sparse_mask         |  25.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin mask_0000                                 |        0 |        1 | Zero      |
+#     | bin mask_1111                                 |        1 |        1 | Covered   |
+#     | bin mask_1010                                 |        0 |        1 | Zero      |
+#     | bin mask_0101                                 |        0 |        1 | Zero      |
+#     | default bin others                            |        0 |    -     | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_idx0                |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin low                                       |        1 |        1 | Covered   |
+#     | bin high                                      |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_sparsity_w0           |  12.500% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <dense,non_zero>                          |        1 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_sparsity_mask         |   6.250% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <dense,mask_1111>                         |        1 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_sparsity_idx0         |  12.500% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <dense,low>                               |        1 |        1 | Covered   |
+#     ===================================================================================
+#     | TYPE /accel_coverage_subscriber/cg_activation |  50.000% | 100.000% | Uncovered |
+#     ===================================================================================
+#     | INSTANCE <UNNAMED1>                           |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_mode_dense          |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin dense                                     |        8 |        1 | Covered   |
+#     | bin sparse                                    |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_is_last             | 100.000% | 100.000% | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin last                                      |        1 |        1 | Covered   |
+#     | bin not_last                                  |        7 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_a0_zero             |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        8 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_a1_zero             |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        8 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_a2_zero             |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        8 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_a3_zero             |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        8 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_all_zero            |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin all_zero                                  |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        8 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_a0_neg              |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin positive                                  |        8 |        1 | Covered   |
+#     | bin negative                                  |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_a1_neg              |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin positive                                  |        8 |        1 | Covered   |
+#     | bin negative                                  |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_mode_last             |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <dense,last>                              |        1 |        1 | Covered   |
+#     | bin <dense,not_last>                          |        7 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_mode_allzero          |  25.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <dense,non_zero>                          |        8 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_last_allzero          |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <last,non_zero>                           |        1 |        1 | Covered   |
+#     | bin <not_last,non_zero>                       |        7 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_mode_a0sign           |  25.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <dense,positive>                          |        8 |        1 | Covered   |
+#     ===================================================================================
+#     | TYPE /accel_coverage_subscriber/cg_result     |  58.333% | 100.000% | Uncovered |
+#     ===================================================================================
+#     | INSTANCE <UNNAMED1>                           |  58.333% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_is_last             | 100.000% | 100.000% | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin last                                      |        1 |        1 | Covered   |
+#     | bin not_last                                  |        7 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_result0_zero        |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        8 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_result_last_zero    |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        8 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_result0_neg         |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin positive                                  |        8 |        1 | Covered   |
+#     | bin negative                                  |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_last_zero             |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <last,non_zero>                           |        1 |        1 | Covered   |
+#     | bin <not_last,non_zero>                       |        7 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_last_neg              |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <last,positive>                           |        1 |        1 | Covered   |
+#     | bin <not_last,positive>                       |        7 |        1 | Covered   |
+#     ===================================================================================
+#     | TYPE /accel_coverage_subscriber/cg_fsm        |  52.380% | 100.000% | Uncovered |
+#     ===================================================================================
+#     | INSTANCE <UNNAMED1>                           |  52.380% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_state               |  71.428% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin idle                                      |      213 |        1 | Covered   |
+#     | bin load                                      |       16 |        1 | Covered   |
+#     | bin stream                                    |       18 |        1 | Covered   |
+#     | bin drain                                     |       89 |        1 | Covered   |
+#     | bin done_st                                   |        1 |        1 | Covered   |
+#     | bin error                                     |        0 |        1 | Zero      |
+#     | bin recovery                                  |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_mode                |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin dense                                     |      337 |        1 | Covered   |
+#     | bin sparse                                    |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_state_mode            |  35.714% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <idle,dense>                              |      213 |        1 | Covered   |
+#     | bin <load,dense>                              |       16 |        1 | Covered   |
+#     | bin <stream,dense>                            |       18 |        1 | Covered   |
+#     | bin <drain,dense>                             |       89 |        1 | Covered   |
+#     | bin <done_st,dense>                           |        1 |        1 | Covered   |
+#     ===================================================================================
+# 
+# 
+# +++++++++++++++++++++++++++++++++++++++++++++
+# ++++++++++       DESIGN UNITS      ++++++++++
+# +++++++++++++++++++++++++++++++++++++++++++++
+# 
+# 
+# CUMULATIVE SUMMARY
+# =============================================
+# |    Coverage Type    | Weight | Hits/Total |
+# =============================================
+# | Covergroup Coverage |      1 |    55.066% |
+# |---------------------|--------|------------|
+# | Types               |        |      0 / 5 |
+# =============================================
+# CUMULATIVE DESIGN-BASED COVERAGE: 55.066%
+# COVERED DESIGN UNITS: 0 / 1
+# FILES: 1
+# 
+# 
+# CLASS - work.accel_coverage_subscriber
+# 
+# 
+#     SUMMARY
+#     =============================================
+#     |    Coverage Type    | Weight | Hits/Total |
+#     =============================================
+#     | Covergroup Coverage |      1 |    55.066% |
+#     |---------------------|--------|------------|
+#     | Types               |        |      0 / 5 |
+#     =============================================
+#     WEIGHTED AVERAGE: 55.066%
+# 
+# 
+#     COVERGROUP COVERAGE
+#     ===================================================================================
+#     |                  Covergroup                   |   Hits   |  Goal /  |  Status   |
+#     |                                               |          | At Least |           |
+#     ===================================================================================
+#     | TYPE /accel_coverage_subscriber/cg_axil       |  85.714% | 100.000% | Uncovered |
+#     ===================================================================================
+#     | INSTANCE <UNNAMED1>                           |  85.714% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_we                  | 100.000% | 100.000% | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin write                                     |       12 |        1 | Covered   |
+#     | bin read                                      |        7 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_wdata_lsb           | 100.000% | 100.000% | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        7 |        1 | Covered   |
+#     | bin one                                       |        5 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_rdata_lsb           | 100.000% | 100.000% | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        5 |        1 | Covered   |
+#     | bin one                                       |        2 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_resp                |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin okay                                      |       19 |        1 | Covered   |
+#     | bin slverr                                    |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_we_wdata              | 100.000% | 100.000% | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <write,zero>                              |        7 |        1 | Covered   |
+#     | bin <write,one>                               |        5 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_we_rdata              | 100.000% | 100.000% | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <read,zero>                               |        5 |        1 | Covered   |
+#     | bin <read,one>                                |        2 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_we_resp               |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <write,okay>                              |       12 |        1 | Covered   |
+#     | bin <read,okay>                               |        7 |        1 | Covered   |
+#     ===================================================================================
+#     | TYPE /accel_coverage_subscriber/cg_weight     |  28.906% | 100.000% | Uncovered |
+#     ===================================================================================
+#     | INSTANCE <UNNAMED1>                           |  28.906% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_sparsity            |  25.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin dense                                     |        1 |        1 | Covered   |
+#     | bin sp_2_4                                    |        0 |        1 | Zero      |
+#     | bin sp_1_4                                    |        0 |        1 | Zero      |
+#     | bin sp_4_8                                    |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_w0_zero             |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        1 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_w1_zero             |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        1 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_sparse_mask         |  25.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin mask_0000                                 |        0 |        1 | Zero      |
+#     | bin mask_1111                                 |        1 |        1 | Covered   |
+#     | bin mask_1010                                 |        0 |        1 | Zero      |
+#     | bin mask_0101                                 |        0 |        1 | Zero      |
+#     | default bin others                            |        0 |    -     | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_idx0                |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin low                                       |        1 |        1 | Covered   |
+#     | bin high                                      |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_sparsity_w0           |  12.500% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <dense,non_zero>                          |        1 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_sparsity_mask         |   6.250% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <dense,mask_1111>                         |        1 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_sparsity_idx0         |  12.500% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <dense,low>                               |        1 |        1 | Covered   |
+#     ===================================================================================
+#     | TYPE /accel_coverage_subscriber/cg_activation |  50.000% | 100.000% | Uncovered |
+#     ===================================================================================
+#     | INSTANCE <UNNAMED1>                           |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_mode_dense          |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin dense                                     |        8 |        1 | Covered   |
+#     | bin sparse                                    |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_is_last             | 100.000% | 100.000% | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin last                                      |        1 |        1 | Covered   |
+#     | bin not_last                                  |        7 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_a0_zero             |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        8 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_a1_zero             |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        8 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_a2_zero             |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        8 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_a3_zero             |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        8 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_all_zero            |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin all_zero                                  |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        8 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_a0_neg              |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin positive                                  |        8 |        1 | Covered   |
+#     | bin negative                                  |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_a1_neg              |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin positive                                  |        8 |        1 | Covered   |
+#     | bin negative                                  |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_mode_last             |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <dense,last>                              |        1 |        1 | Covered   |
+#     | bin <dense,not_last>                          |        7 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_mode_allzero          |  25.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <dense,non_zero>                          |        8 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_last_allzero          |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <last,non_zero>                           |        1 |        1 | Covered   |
+#     | bin <not_last,non_zero>                       |        7 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_mode_a0sign           |  25.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <dense,positive>                          |        8 |        1 | Covered   |
+#     ===================================================================================
+#     | TYPE /accel_coverage_subscriber/cg_result     |  58.333% | 100.000% | Uncovered |
+#     ===================================================================================
+#     | INSTANCE <UNNAMED1>                           |  58.333% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_is_last             | 100.000% | 100.000% | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin last                                      |        1 |        1 | Covered   |
+#     | bin not_last                                  |        7 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_result0_zero        |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        8 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_result_last_zero    |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin zero                                      |        0 |        1 | Zero      |
+#     | bin non_zero                                  |        8 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_result0_neg         |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin positive                                  |        8 |        1 | Covered   |
+#     | bin negative                                  |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_last_zero             |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <last,non_zero>                           |        1 |        1 | Covered   |
+#     | bin <not_last,non_zero>                       |        7 |        1 | Covered   |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_last_neg              |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <last,positive>                           |        1 |        1 | Covered   |
+#     | bin <not_last,positive>                       |        7 |        1 | Covered   |
+#     ===================================================================================
+#     | TYPE /accel_coverage_subscriber/cg_fsm        |  52.380% | 100.000% | Uncovered |
+#     ===================================================================================
+#     | INSTANCE <UNNAMED1>                           |  52.380% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_state               |  71.428% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin idle                                      |      213 |        1 | Covered   |
+#     | bin load                                      |       16 |        1 | Covered   |
+#     | bin stream                                    |       18 |        1 | Covered   |
+#     | bin drain                                     |       89 |        1 | Covered   |
+#     | bin done_st                                   |        1 |        1 | Covered   |
+#     | bin error                                     |        0 |        1 | Zero      |
+#     | bin recovery                                  |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | COVERPOINT <UNNAMED1>::cp_mode                |  50.000% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin dense                                     |      337 |        1 | Covered   |
+#     | bin sparse                                    |        0 |        1 | Zero      |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | CROSS <UNNAMED1>::cross_state_mode            |  35.714% | 100.000% | Uncovered |
+#     |-----------------------------------------------|----------|----------|-----------|
+#     | bin <idle,dense>                              |      213 |        1 | Covered   |
+#     | bin <load,dense>                              |       16 |        1 | Covered   |
+#     | bin <stream,dense>                            |       18 |        1 | Covered   |
+#     | bin <drain,dense>                             |       89 |        1 | Covered   |
+#     | bin <done_st,dense>                           |        1 |        1 | Covered   |
+#     ===================================================================================
+# 
+# 
+# =========================================
+Done

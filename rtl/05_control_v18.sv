@@ -212,10 +212,15 @@ module accel_csr_axil_v18
                         wr_strb_reg <= s_axil_wstrb;
                         s_axil_wready <= 1'b0;
                     end
-                    
+
                     if (!s_axil_awready && !s_axil_wready) begin
                         s_axil_bvalid <= 1'b1;
-                        s_axil_bresp  <= AXIL_RESP_OKAY;
+                        
+                        if (wr_addr_reg > 12'h0FC) 
+                            s_axil_bresp <= AXIL_RESP_SLVERR;
+                        else 
+                            s_axil_bresp <= AXIL_RESP_OKAY;
+
                         wr_state <= AXIL_RESP;
                     end
                 end
@@ -259,7 +264,12 @@ module accel_csr_axil_v18
                 
                 AXIL_READ: begin
                     s_axil_rvalid <= 1'b1;
-                    s_axil_rresp  <= AXIL_RESP_OKAY;
+ 
+                    if (rd_addr_reg > 12'h0FC) 
+                        s_axil_rresp <= AXIL_RESP_SLVERR;
+                    else 
+                        s_axil_rresp <= AXIL_RESP_OKAY;
+
                     rd_state <= AXIL_RESP;
                 end
                 
@@ -668,7 +678,7 @@ module compute_controller_v18
             end
             
             S_ERROR: begin
-                state_d = S_ERROR;
+                state_d = S_RECOVERY;
             end
             
             S_RECOVERY: begin

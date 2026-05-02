@@ -2,7 +2,7 @@
 `define TEST_013_DENSE_MAX_WEIGHTS_SV
 
 
-class test_013_dense_max_weights extends functionality_basetest;
+class test_013_dense_max_weights extends base_test;
 
   `uvm_component_utils(test_013_dense_max_weights)
   

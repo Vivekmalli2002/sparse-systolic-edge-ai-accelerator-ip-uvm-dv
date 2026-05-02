@@ -2,7 +2,7 @@
 `define TEST_018_DENSE_32VECTORS_SV
 
 
-class test_018_dense_32vectors extends functionality_basetest;
+class test_018_dense_32vectors extends base_test;
 
   `uvm_component_utils(test_018_dense_32vectors)
   

@@ -2,7 +2,7 @@
 `define TEST_010_DENSE_ALLONES_SV
 
 
-class test_010_dense_allones extends function_basetest;
+class test_010_dense_allones extends base_test;
 
   `uvm_component_utils(test_010_dense_allones)
   
@@ -64,4 +64,4 @@ endclass
 
 
 
-`endfi
+`endif

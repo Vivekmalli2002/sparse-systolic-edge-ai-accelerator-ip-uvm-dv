@@ -8,10 +8,11 @@
 `include "accel_axis_act_agent.sv"
 `include "accel_axis_result_agent.sv"
 `include "accel_scoreboard.sv"
+`include "accel_coverage_subscriber.sv"
 `include "accel_env.sv"
 `include "accel_sequences.sv"
 `include "base_tests.sv"
-`include "accel_sva_coverage.sv"
+`include "accel_sva.sv"
 `include "test_files.sv"
 
 import uvm_pkg::*;
@@ -26,6 +27,7 @@ module tb_top;
   logic clk,rst_n;
   logic irq_out,busy,done;
   logic [2:0] state_out;
+  
   
   initial begin
     
@@ -55,6 +57,22 @@ module tb_top;
   assign probe_if.wgt_buf_tile_ready = dut.wgt_buf_tile_ready;
   assign probe_if.done            = done;
   assign probe_if.mode_dense = dut.u_control.mode_dense;
+  
+  
+  // ---- Fault injection bridge: probe_if.inject_parity_error -> DUT ----
+  always @(posedge probe_if.clk) begin
+    if (probe_if.inject_parity_error) begin
+      $display("*** inject_parity_error detected — forcing parity_error for 1 cycle ***");
+      // Assuming the DUT's parity error signal is at this path:
+      force dut.u_control.u_csr.ctrl_abort = 1'b1;
+      // Release on the next clock edge
+      @(posedge probe_if.clk);
+      release dut.u_control.u_csr.ctrl_abort;
+      // Autonomously clear the injection flag so the test knows it fired
+      probe_if.inject_parity_error <= 0;
+    end
+  end
+    
   
   //DUT instantiation
 
@@ -122,8 +140,10 @@ module tb_top;
        .done (done),
        .state_out (state_out)     
      );
+ 
   
-  bind accel_top_v18 accel_sva_coverage u_sva(
+  
+  bind accel_top_v18 accel_sva u_sva(
     
     .clk(clk),
     .rst_n(rst_n),
@@ -160,6 +180,8 @@ module tb_top;
     .state(state_out),
     .compute_en(u_control.compute_en),
     .busy(busy),
+    .sparsity_mode(dut.sparsity_cfg),
+    .ofifo_full(dut.ofifo_full),
     .done(done)
   
   );
@@ -199,14 +221,37 @@ module tb_top;
     //run_test("test_022_sparse_1_4_8vectors");
     //run_test("test_023_sparse_1_4_100vectors");
     //run_test("test_024_sparse_4_8_8vectors");
-    run_test("test_025_sparse_4_8_100vectors");
+    //run_test("test_025_sparse_4_8_100vectors");
+    //run_test("test_040_cap_csr_readonly");
+    //run_test("test_041_axil_aw_w_ordering");
+    //run_test("test_042_axil_read_during_write");
+    //run_test("test_044_axil_reserved_addr_write");
+    //run_test("test_045_result_tready_backpressure");
+    //run_test("test_046_weight_tready_mid_tile");
+    //run_test("test_047_act_tvalid_gap");
+    //run_test("test_048_result_tvalid_tlast");
+    //run_test("test_049_simultaneous_backpressure");
+    //run_test("test_050_postproc_bias_add");
+    //run_test("test_051_postproc_scale_shift");
+    //run_test("test_052_postproc_sat_upper");
+    //run_test("test_053_postproc_sat_lower");
+    //run_test("test_054_activation_relu_vs_leaky");
+    //run_test("test_060_soft_reset_from_stream");
+    //run_test("test_061_hard_reset_during_compute");
+    //run_test("test_062_irq_mask_during_compute");
+    //run_test("test_063_csr_write_during_compute");
+    //run_test("test_064_weight_tile_reuse");
+    //run_test("test_070_constrained_random_all_modes");
+    //run_test("test_071_rand_postproc_config");
+    //run_test("test_072_fsm_transition_coverage");
+    //run_test("test_073_axi_handshake_coverage");
+    run_test("test_074_max_throughput_sustained");
+
 
   end
   
   initial begin
-    $dumpfile("dump.vcd");
-    $dumpvars;
-    #200000;
+    #3000000;
     $finish();
     
   end

@@ -405,18 +405,34 @@ acdb merge -o coverage/merged.acdb -i coverage/test_065_fsm_error_state.acdb \
   -i coverage/test_065_fsm_error_state_sparse.acdb \
   -i coverage/test_075_high_coverage_sweep.acdb
 acdb report -i coverage/merged.acdb -o coverage/merged_report.txt -txt
-
-
----
+```
 
 ---
 
-## Key Verification Findings (Bugs Found & Fixed)
+## 👤 Author & Career Context
 
-1. **Weight buffer row‑0 capture(known dut limitation):** `axis_weight_rx` asserted `wr_start` and `wr_valid` simultaneously on the first beat, causing the weight tile buffer to miss row 0. Fixed by latching data in `W_IDLE` before transitioning to `W_LOADING`.
+```
+**Vivek Malli**  
+*Embedded Systems Test Engineer → Aspiring Semiconductor DV Engineer*
 
-2. **AXI Driver delta-cycle race (PA001/PA008):** Mixed raw @(posedge clk) and clocking block event in AXI driver.
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/vivek-malli-validation-eng)
 
-3. **ctrl_clear:** signal was defaultly set to 1 , fixed it by driving via CSR reg
+
+| Area | Details |
+|------|---------|
+| **Current Role** | Embedded System Test Engineer @ Bosch (3.7+ years) |
+| **Domain Expertise** | Automotive ECU validation: CAPL, CANoe, DoIP, UDS, HIL, VT System, Ethernet |
+| **Target Role** | Semiconductor Design Verification Engineer |
+| **DV Skills** | SystemVerilog, UVM 1.2, SVA, Functional Coverage, UVM RAL (in progress) |
+| **This Project** | 45-test suite, 4-agent UVM env, 30 SVA assertions, reference model scoreboard, **100% functional coverage** |
+
+> *"From testing ECUs at Bosch to verifying a complex AI accelerator IP — this project bridges the gap between embedded systems and semiconductor DV, proving hands-on mastery of UVM, coverage-driven verification, and ABV."*
 
 ---
+
+## 📄 License
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+*Built with dedication for the semiconductor DV community. Questions? Open an issue or connect on LinkedIn.*
+```

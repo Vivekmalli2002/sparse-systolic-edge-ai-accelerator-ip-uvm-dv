@@ -93,13 +93,13 @@ graph LR
     class FSM,CSR control;
 ```
 
-----
+---
 
 ##Block diagram
 
 ![Block diagram of the 16x16 sparse systolic accelerator](docs/images/dut_top_architecture.jpg)
 
-
+---
 
 ##Graphical architecture illustration
 
@@ -172,7 +172,7 @@ tb_top
 | 3 | Sparse Compute Correctness | 3 | 2 | 0 | 5 | 5 | ✅ 100% |
 | 4 | Large Vector / Throughput | 0 | 3 | 2 | 5 | 3 | ✅ 100% |
 | 4b | Numerical Corner Cases | 0 | 4 | 1 | 5 | 0 | ◇ 0% (planned) |
-| 5 | AXI4‑Lite Protocol | 1 | 3 | 1 | 5 | 4 | ◆ 80% |
+| 5 | AXI4‑Lite Protocol | 1 | 3 | 1 | 5 | 5 | ✅ 100% |
 | 5b | IRQ / CSR Advanced | 0 | 3 | 2 | 5 | 0 | ◇ 0% (planned) |
 | 6 | AXI4‑Stream / Backpressure | 1 | 2 | 2 | 5 | 5 | ✅ 100% |
 | 7 | Post‑Processing Pipeline | 0 | 3 | 2 | 5 | 5 | ✅ 100% |
@@ -314,12 +314,12 @@ text
 
 ## Performance Characterisation
 
-| Test | Mode | Vectors | Cycles | MACs | Efficiency | GMACS |
-|------|------|---------|--------|------|------------|-------|
-| T010 | Dense | 1 | 99 | 1,7408 | 68.7% | 70.34 |
-| T018 | Dense | 32 | — | — | ≥78% | — |
-| T019 | Dense | 100 | — | — | 89.3% | 91.49 |
-| T021 | Sparse 2:4 | 100 | — | — | 83.8% | 85.78 |
+| Test | Mode | Vectors | Cycles | MACs | Efficiency | GMACS | GOPS |
+|------|------|---------|--------|------|------------|-------|------|
+| T010 | Dense | 1 | 99 | 1,7408 | 68.7% | 70.34 | 140.68 |
+| T018 | Dense | 32 | 155 | 31744 | 80% | 81.92 | 163.84 |
+| T019 | Dense | 100 | 291 | 66560 | 89.3% | 91.49 | 182.96 |
+| T021 | Sparse 2:4 | 100 | 191 | 40960 | 83.8% | 85.78 | 171.56 |
 
 **Efficiency Scaling:** N / (N + 48) where N = vector count. Dense 100 reaches 89.3%, confirming the pipeline latency model.
 
@@ -377,13 +377,11 @@ sparse-systolic-edge-ai-accelerator-ip-uvm-dv/
 
 ## Key Verification Findings (Bugs Found & Fixed)
 
-1. **Weight buffer row‑0 capture:** `axis_weight_rx` asserted `wr_start` and `wr_valid` simultaneously on the first beat, causing the weight tile buffer to miss row 0. Fixed by latching data in `W_IDLE` before transitioning to `W_LOADING`.
+1. **Weight buffer row‑0 capture(known dut limitation):** `axis_weight_rx` asserted `wr_start` and `wr_valid` simultaneously on the first beat, causing the weight tile buffer to miss row 0. Fixed by latching data in `W_IDLE` before transitioning to `W_LOADING`.
 
-2. **Dense phase‑gating:** In dense mode, phase 0 outputs incomplete partial sums that corrupted downstream psum chains. Fixed by gating `col_valid` and `result_valid` with `stall_phase` in the systolic array output logic (FIX7).
+2. **AXI Driver delta-cycle race (PA001/PA008):** Mixed raw @(posedge clk) and clocking block event in AXI driver.
 
-3. **Result drain deadlock:** The original controller disabled `result_read` during `S_STREAM`, causing the output FIFO to fill and stall the array. Fixed by enabling concurrent result drain during both `S_STREAM` and `S_DRAIN`.
-
-4. **SVA validation caught TB bugs:** Assertions PA001/PA008 originally failed because the AXI‑Lite driver de‑asserted VALID before READY. The assertions forced a correction in the driver’s handshake logic — demonstrating the value of SVA for testbench verification.
+3. **ctrl_clear:** signal was defaultly set to 1 , fixed it by driving via CSR reg
 
 ---
 
@@ -411,31 +409,26 @@ acdb report -i coverage/merged.acdb -o coverage/merged_report.txt -txt
 
 ---
 
-## 👤 Author & Career Context
+## How to Run
 
-<div align="center">
+```bash
+# Clone the repository
+git clone https://github.com/Vivekmalli2002/sparse-systolic-edge-ai-accelerator-ip-uvm-dv
 
-**Vivek Malli**  
-*Embedded Systems Test Engineer → Aspiring Semiconductor DV Engineer*
+# Move to simulation directory
+cd sim
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/vivek-malli-validation-eng)
+# Run a single test (example with EDA Playground or local Riviera‑PRO)
+vsim -c -do "run_test test_075_high_coverage_sweep; quit" \
+     +UVM_TESTNAME=test_075_high_coverage_sweep \
+     +UVM_VERBOSITY=UVM_NONE \
+     -acdb_file coverage/test_075.acdb
 
-</div>
+# Merge coverage and generate report
+acdb merge -o coverage/merged.acdb -i coverage/test_065_fsm_error_state.acdb \
+  -i coverage/test_065_fsm_error_state_sparse.acdb \
+  -i coverage/test_075_high_coverage_sweep.acdb
+acdb report -i coverage/merged.acdb -o coverage/merged_report.txt -txt
 
-| Area | Details |
-|------|---------|
-| **Current Role** | Embedded System Test Engineer @ Bosch (3.7+ years) |
-| **Domain Expertise** | Automotive ECU validation: CAPL, CANoe, DoIP, UDS, HIL, VT System, Ethernet |
-| **Target Role** | Semiconductor Design Verification Engineer |
-| **DV Skills** | SystemVerilog, UVM 1.2, SVA, Functional Coverage, UVM RAL (in progress) |
-| **This Project** | 45-test suite, 4-agent UVM env, 30 SVA assertions, reference model scoreboard, **100% functional coverage** |
-
-> *"From testing ECUs at Bosch to verifying a complex AI accelerator IP — this project bridges the gap between embedded systems and semiconductor DV, proving hands-on mastery of UVM, coverage-driven verification, and ABV."*
 
 ---
-
-## 📄 License
-
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
-
-*Built with dedication for the semiconductor DV community. Questions? Open an issue or connect on LinkedIn.*

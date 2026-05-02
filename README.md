@@ -326,6 +326,8 @@ acdb merge -o coverage/merged.acdb -i coverage/test_065_fsm_error_state.acdb \
   -i coverage/test_075_high_coverage_sweep.acdb
 acdb report -i coverage/merged.acdb -o coverage/merged_report.txt -txt
 
+---
+
 ## Author & Career Context
 Vivek Malli
 
@@ -341,7 +343,7 @@ www.linkedin.com/in/vivek-malli-validation-eng
 |DV Skills Developed| SystemVerilog, UVM 1.2, SVA, Functional Coverage, UVM RAL (in progress)|
 |This Project| Built from scratch — 45‑test passing suite, 4 agent UVM env, 30 SVA assertions, reference model scoreboard, 100% functional coverage|
 
-
+---
 
 License
 

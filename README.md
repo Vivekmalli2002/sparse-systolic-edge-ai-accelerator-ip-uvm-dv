@@ -26,6 +26,80 @@ A production‑style UVM verification environment for a 16×16 weight‑stationa
 | **RTL Lines** | ~4,500 (7 SystemVerilog source files) |
 | **IP Version** | V18.4 (128‑bit AXI‑Stream, 2× throughput) |
 
+### 🏗️ Accelerator Architecture
+
+```mermaid
+graph LR
+    %% External Interfaces
+    subgraph AXI_Interfaces ["AXI4 Interfaces"]
+        AXIL[/"AXI4-Lite<br>(Control/CSR)"/]
+        AXIS_W[/"AXI4-Stream Weight<br>(128-bit, 6 Wgts/beat)"/]
+        AXIS_A[/"AXI4-Stream Act<br>(128-bit, 16 Acts/beat)"/]
+    end
+
+    %% Control Subsystem
+    subgraph Control ["Control Subsystem"]
+        FSM{"Compute Controller<br>(FSM)"}
+        CSR[("CSR Map &<br>Scalable Bias Mem")]
+    end
+
+    %% Core Dataflow
+    subgraph Dataflow ["Datapath & Compute Core"]
+        W_SKEW["Weight Tile Buffer<br>& Skew"]
+        A_SKEW["Activation<br>Skew Buffer"]
+        ARRAY((("8x8 Systolic Array<br>[PE Stages = 2]<br>(Sparse/Dense MAC)")))$$$
+        DESKEW["Result<br>Deskew Buffer"]
+    end
+
+    %% Post-Processing
+    subgraph PostProc ["Post-Processing Pipeline"]
+        BIAS["1. Bias Addition"]
+        SCALE["2. Scale Multiply"]
+        SAT["3. Shift, Round, Saturate"]
+    end
+
+    %% Output
+    FIFO["Output Collector<br>FIFO"]
+    AXIS_R[/"AXI4-Stream Result<br>(128-bit, 4 Psums/beat)"/]
+
+    %% Routing
+    AXIL --> CSR
+    CSR <--> FSM
+    FSM -.-|>|Control Flags| ARRAY
+    
+    AXIS_W --> W_SKEW
+    AXIS_A --> A_SKEW
+    
+    W_SKEW -->|Weights & Indices| ARRAY
+    A_SKEW -->|Activations| ARRAY
+    
+    ARRAY -->|Raw Psums| DESKEW
+    DESKEW --> BIAS
+    BIAS --> SCALE
+    SCALE --> SAT
+    SAT --> FIFO
+    
+    FIFO --> AXIS_R
+
+    %% Styling
+    classDef interface fill:#1f2937,stroke:#3b82f6,stroke-width:2px,color:#fff;
+    classDef core fill:#065f46,stroke:#60a5fa,stroke-width:2px,color:#fff;
+    classDef postproc fill:#4c1d95,stroke:#a78bfa,stroke-width:2px,color:#fff;
+    classDef control fill:#7c2d12,stroke:#c4b5fd,stroke-width:2px,color:#fff;
+
+    class AXIL,AXIS_W,AXIS_A,AXIS_R interface;
+    class ARRAY,W_SKEW,A_SKEW,DESKEW,FIFO core;
+    class BIAS,SCALE,SAT postproc;
+    class FSM,CSR control;
+```
+
+*Architecture Block Diagram*
+
+![architecture_block_diagram](sim/Waveforms/dut_top_architecture.jpg)
+
+
+![architecture_graphical_diagram](sim/Waveforms/Architecture.jpg)
+
 ---
 
 ## Key Metrics at a Glance

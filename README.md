@@ -409,26 +409,14 @@ acdb report -i coverage/merged.acdb -o coverage/merged_report.txt -txt
 
 ---
 
-## How to Run
+---
 
-```bash
-# Clone the repository
-git clone https://github.com/Vivekmalli2002/sparse-systolic-edge-ai-accelerator-ip-uvm-dv
+## Key Verification Findings (Bugs Found & Fixed)
 
-# Move to simulation directory
-cd sim
+1. **Weight buffer row‑0 capture(known dut limitation):** `axis_weight_rx` asserted `wr_start` and `wr_valid` simultaneously on the first beat, causing the weight tile buffer to miss row 0. Fixed by latching data in `W_IDLE` before transitioning to `W_LOADING`.
 
-# Run a single test (example with EDA Playground or local Riviera‑PRO)
-vsim -c -do "run_test test_075_high_coverage_sweep; quit" \
-     +UVM_TESTNAME=test_075_high_coverage_sweep \
-     +UVM_VERBOSITY=UVM_NONE \
-     -acdb_file coverage/test_075.acdb
+2. **AXI Driver delta-cycle race (PA001/PA008):** Mixed raw @(posedge clk) and clocking block event in AXI driver.
 
-# Merge coverage and generate report
-acdb merge -o coverage/merged.acdb -i coverage/test_065_fsm_error_state.acdb \
-  -i coverage/test_065_fsm_error_state_sparse.acdb \
-  -i coverage/test_075_high_coverage_sweep.acdb
-acdb report -i coverage/merged.acdb -o coverage/merged_report.txt -txt
-
+3. **ctrl_clear:** signal was defaultly set to 1 , fixed it by driving via CSR reg
 
 ---

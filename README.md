@@ -326,28 +326,34 @@ acdb merge -o coverage/merged.acdb -i coverage/test_065_fsm_error_state.acdb \
   -i coverage/test_075_high_coverage_sweep.acdb
 acdb report -i coverage/merged.acdb -o coverage/merged_report.txt -txt
 
+
 ---
 
-
 ## 👤 Author & Career Context
+
+<div align="center">
 
 **Vivek Malli**  
 *Embedded Systems Test Engineer → Aspiring Semiconductor DV Engineer*
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/your-profile)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/vivek-malli-validation-eng)
+
+</div>
 
 | Area | Details |
 |------|---------|
 | **Current Role** | Embedded System Test Engineer @ Bosch (3.7+ years) |
 | **Domain Expertise** | Automotive ECU validation: CAPL, CANoe, DoIP, UDS, HIL, VT System, Ethernet |
 | **Target Role** | Semiconductor Design Verification Engineer |
-| **DV Skills Developed** | SystemVerilog, UVM 1.2, SVA, Functional Coverage, UVM RAL (in progress) |
-| **This Project** | Built from scratch — 45‑test passing suite, 4‑agent UVM env, 30 SVA assertions, reference model scoreboard, **100% functional coverage** |
+| **DV Skills** | SystemVerilog, UVM 1.2, SVA, Functional Coverage, UVM RAL (in progress) |
+| **This Project** | 45-test suite, 4-agent UVM env, 30 SVA assertions, reference model scoreboard, **100% functional coverage** |
 
-> "From testing ECUs at Bosch to verifying a complex AI accelerator IP — this project bridges the gap between embedded systems and semiconductor DV, proving hands‑on mastery of UVM, coverage‑driven verification, and ABV."
+> *"From testing ECUs at Bosch to verifying a complex AI accelerator IP — this project bridges the gap between embedded systems and semiconductor DV, proving hands-on mastery of UVM, coverage-driven verification, and ABV."*
 
-License
+---
 
-This project is licensed under the MIT License — see the LICENSE file for details.
+## 📄 License
 
-Built with dedication for the semiconductor DV community. Questions? Open an issue or connect on LinkedIn.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+*Built with dedication for the semiconductor DV community. Questions? Open an issue or connect on LinkedIn.*

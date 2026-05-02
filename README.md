@@ -28,6 +28,7 @@ A production‑style UVM verification environment for a 16×16 weight‑stationa
 
 ### 🏗️ Accelerator Architecture
 
+```mermaid
 graph LR
     %% External Interfaces
     subgraph AXI_Interfaces ["AXI4 Interfaces"]
@@ -39,12 +40,12 @@ graph LR
     %% Control Subsystem
     subgraph Control ["Control Subsystem"]
         FSM{"Compute Controller<br>(FSM)"}
-        CSR[("CSR Map &amp;<br>Scalable Bias Mem")]
+        CSR[("CSR Map &<br>Scalable Bias Mem")]
     end
 
     %% Core Dataflow
     subgraph Dataflow ["Datapath & Compute Core"]
-        W_SKEW["Weight Tile Buffer<br>&amp; Skew"]
+        W_SKEW["Weight Tile Buffer<br>& Skew"]
         A_SKEW["Activation<br>Skew Buffer"]
         ARRAY((("8x8 Systolic Array<br>[PE Stages = 2]<br>(Sparse/Dense MAC)")))
         DESKEW["Result<br>Deskew Buffer"]
@@ -69,7 +70,7 @@ graph LR
     AXIS_W --> W_SKEW
     AXIS_A --> A_SKEW
     
-    W_SKEW -->|Weights &amp; Indices| ARRAY
+    W_SKEW -->|Weights & Indices| ARRAY
     A_SKEW -->|Activations| ARRAY
     
     ARRAY -->|Raw Psums| DESKEW
@@ -90,14 +91,13 @@ graph LR
     class ARRAY,W_SKEW,A_SKEW,DESKEW,FIFO core;
     class BIAS,SCALE,SAT postproc;
     class FSM,CSR control;
+```
 
 ----
-## Architecture Block Diagram
 
-![architecture_block_diagram](sim/Waveforms/dut_top_architecture.jpg)
+![Block diagram of the 16x16 sparse systolic accelerator](sim/Waveforms/dut_top_architecture.jpg)
 
-
-![architecture_graphical_diagram](sim/Waveforms/Architecture.jpg)
+![Graphical architecture illustration](sim/Waveforms/Architecture.jpg)
 
 ---
 
@@ -110,7 +110,7 @@ graph LR
 | **SVA Assertions** | **30 protocol + FSM + datapath properties — all passing** |
 | **Functional Coverage** | **100% merged across 3 tests (5 covergroups, all cross‑bins hit)** |
 | **FSM Coverage** | **100% state bins, 100% mode bins, 100% state×mode cross (including error & recovery)** |
-| **Peak Throughput** | **91.49 GMACS** at 200 MHz (89.3% compute efficiency) |
+| **Peak Throughput** | **91.49 GMACS/ 182.98 GOPS** at 200 MHz (89.3% compute efficiency) |
 | **Zero Stalls** | 0 stall cycles across all compute tests |
 | **Simulation Runtime** | ~5.5 ms for the main constrained‑random sweep (25 seeds) |
 
@@ -124,11 +124,11 @@ graph LR
 | **UVM Architecture** | 4 agents + scoreboard + reference model + coverage subscriber + SVA bind — fully hand‑written. |
 | **AXI Protocol Mastery** | AXI4‑Lite (5‑channel) + 3 × AXI4‑Stream interfaces verified with full handshake coverage. |
 | **CSR Verification** | Reset defaults, write‑readback, W1C, IRQ force, perf counter gating, and post‑proc configuration. |
-| **Constrained Random** | A single test (T075) with 25 seeds and 2‑4 vectors per seed reaches 84.8% coverage alone. |
-| **Coverage‑Driven Verification** | Meticulous bin analysis closed the remaining 15.2% with only two additional error‑injection tests. |
+| **Constrained Random** | A single test (T075) with 17 seeds and 2‑4 vectors per seed reaches 95.3% coverage alone. |
+| **Coverage‑Driven Verification** | Meticulous bin analysis closed the remaining 5.7% with only two additional error‑injection tests. |
 | **Numerical Accuracy** | Scoreboard reference model matches RTL bit‑exactly across 8,000+ checks, including all sparsity modes. |
 | **Assertion‑Based Verification** | 30 SVA properties bound to the DUT, all passing — no false positives. |
-| **Debugging & Bug Hunting** | Found and fixed four real RTL bugs (weight buffer, dense phase‑gating, result drain deadlock, TB handshake). |
+| **Debugging & Bug Hunting** | Found real RTL bugs (weight buffer(multi tile fail - HW limitation),TB handshake SVA trigger(delta cycle race)). |
 | **Performance Characterisation** | Cycle‑accurate GMACS reports, efficiency scaling curves, zero‑stall confirmation. |
 
 ---
@@ -164,7 +164,7 @@ tb_top
 | 1 | CSR / Reset Verification | 4 | 1 | 0 | 5 | 5 | ✅ 100% |
 | 2 | Dense Compute Correctness | 2 | 3 | 0 | 5 | 5 | ✅ 100% |
 | 3 | Sparse Compute Correctness | 3 | 2 | 0 | 5 | 5 | ✅ 100% |
-| 4 | Large Vector / Throughput | 0 | 3 | 2 | 5 | 3 | ◆ 60% |
+| 4 | Large Vector / Throughput | 0 | 3 | 2 | 5 | 3 | ✅ 100% |
 | 4b | Numerical Corner Cases | 0 | 4 | 1 | 5 | 0 | ◇ 0% (planned) |
 | 5 | AXI4‑Lite Protocol | 1 | 3 | 1 | 5 | 4 | ◆ 80% |
 | 5b | IRQ / CSR Advanced | 0 | 3 | 2 | 5 | 0 | ◇ 0% (planned) |
@@ -175,7 +175,7 @@ tb_top
 | 9 | Constrained Random / Coverage | 0 | 2 | 3 | 5 | 5 | ✅ 100% |
 | **Total** | **12 Scopes** | **13** | **30** | **17** | **60** | **45** | **75%** |
 
-*All 45 implemented tests pass. The three tests used for merged coverage (T065, T065_sparse, T075) alone achieve 100% functional coverage. Remaining planned tests are supplementary or for tape‑out closure.*
+*All 45 implemented tests pass. The three tests used for merged coverage (T065, T066, T075) alone achieve 100% functional coverage. Remaining planned tests are supplementary or for tape‑out closure.*
 
 ---
 
@@ -183,8 +183,8 @@ tb_top
 
 **Tool:** Aldec Riviera‑PRO 2025.04  
 **Merged database:** `coverage/merged.acdb`  
-**Tests merged:** `test_065_fsm_error_state` (dense error), `test_065_fsm_error_state_sparse` (sparse error),  
-`test_075_high_coverage_sweep` (25 seeds, all modes)  
+**Tests merged:** `test_065_fsm_error_state_dense`, `test_066_fsm_error_state_sparse`,  
+`test_075_high_coverage_closure` (17 seeds, all modes)  
 **Merged coverage:** **100.00%** — all 5 covergroups, all crosses, all bins covered
 
 | Covergroup | Coverage | Status |
@@ -217,9 +217,9 @@ tb_top
 | `cross_sparsity_mask` | 100% | All 16 mode × mask |
 | `cross_sparsity_idx0` | 100% | All 8 mode × {low, high} |
 
-### Single‑Test Highlight — test_075_high_coverage_sweep
+### Single‑Test Highlight — test_075_high_coverage_closure
 
-A single constrained‑random test (25 seeds, 2‑4 activation vectors each) reached **84.8% overall coverage**, with **100% result coverage** and **98% activation coverage**. This demonstrates the efficiency of well‑constrained randomisation in exercising the majority of the design space with minimal simulation budget.
+A single constrained‑random test (17 seeds, 2‑4 activation vectors each) reached **95.3% overall coverage**, with **95.8% result coverage**, **100% axil**, **100% weight** and **100% activation coverage**. This demonstrates the efficiency of well‑constrained randomisation in exercising the majority of the design space with minimal simulation budget.
 
 ---
 
@@ -355,10 +355,13 @@ sparse-systolic-edge-ai-accelerator-ip-uvm-dv/
 │ ├── waveforms/
 │ │ ├── AXIL_and_AXIS_Weight_Handshakes.jpg
 │ │ └── AXIS_Act_and_Result_Handshakes.jpg
-│ └── coverage/
-│ └── merged.acdb
+│ └── coverage_metrics/
+| |__ Results/
+| |__ run.do
+│
 ├── docs/
 │ └── V18_UVM_TestPlan_v4.docx # Full 60-test plan
+| |__ images/
 ├── README.md
 └── LICENSE
 ```
